@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import Link from 'next/link'
+
 import { addTodo, removeTodo } from '../actions/todo'
 import TodoItem from './TodoItem'
 
@@ -37,6 +39,9 @@ class Todo extends React.Component {
 						<label className="mdl-textfield__label" htmlFor="input">
 							What must be done?
 						</label>
+						<Link href='/nextpage?id=123' as='nextpage/456'>
+							<a>Go To Next Page</a>
+						</Link>
 					</div>
 				</form>
 

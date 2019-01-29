@@ -4,20 +4,18 @@ import { connect } from 'react-redux'
 
 import Fork from '../components/Fork'
 import Todo from '../components/Todo'
+import appActions from '../actions/appActions'
 
 class Index extends React.Component {
 	static async getInitialProps({ store }) {
-		// Adding a default/initialState can be done as follows:
-		// store.dispatch({ type: 'ADD_TODO', text: 'It works!' });
-		const res = await fetch(
-			'https://api.github.com/repos/ooade/NextSimpleStarter'
-		)
-		const json = await res.json()
-		return { stars: json.stargazers_count }
+		// dispatch action to saga for initial data
+		store.dispatch(appActions.initApp.invoke())
+		return { stars: 20 }
 	}
 
 	render() {
-		const { stars } = this.props
+		const { stars, appState } = this.props
+		console.log('COMPONENT DATA', appState);
 		return (
 			<div>
 				<Fork stars={stars} />
@@ -29,4 +27,8 @@ class Index extends React.Component {
 	}
 }
 
-export default connect()(Index)
+const mapStateToProps = state => ({
+	appState: state.appState
+})
+
+export default connect(mapStateToProps)(Index)
