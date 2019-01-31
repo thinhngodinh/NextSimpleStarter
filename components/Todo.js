@@ -39,7 +39,7 @@ class Todo extends React.Component {
 						<label className="mdl-textfield__label" htmlFor="input">
 							What must be done?
 						</label>
-						<Link href='/nextpage?id=123' as='nextpage/456'>
+						<Link href='/nextpage?id=123' as='nextpage'>
 							<a>Go To Next Page</a>
 						</Link>
 					</div>

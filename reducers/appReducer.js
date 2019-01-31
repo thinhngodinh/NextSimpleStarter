@@ -2,8 +2,6 @@ import userAction from '../actions/userActions'
 import appAction from '../actions/appActions'
 
 const initAppState = () => ({
-	init: false,
-	initAppData: []
 });
 
 const ACTION_HANDLERS = {

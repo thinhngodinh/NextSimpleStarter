@@ -11,14 +11,13 @@ import initStore from '../utils/store'
 
 class MyApp extends App {
 	static async getInitialProps({ Component, ctx }) {
-		return {
-			pageProps: {
-				// Call page-level getInitialProps
-				...(Component.getInitialProps
-					? await Component.getInitialProps(ctx)
-					: {})
-			}
+		let pageProps = {}
+
+		if (Component.getInitialProps) {
+			pageProps = await Component.getInitialProps(ctx)
 		}
+
+		return { pageProps }
 	}
 
 	render() {
@@ -38,4 +37,4 @@ class MyApp extends App {
 
 export default withRedux(initStore, {
 	debug: typeof window !== 'undefined' && process.env.NODE_ENV !== 'production'
-})(withReduxSaga(MyApp))
+})(withReduxSaga({ async: true })(MyApp))

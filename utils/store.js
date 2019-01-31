@@ -6,18 +6,25 @@ import rootSaga from '../saga'
 
 const sagaMiddleware = createSagaMiddleware()
 
-const enhancers = compose(
-	typeof window !== 'undefined' && process.env.NODE_ENV !== 'production'
-		? window.devToolsExtension && window.devToolsExtension()
-		: f => f
-)
+const bindMiddleware = middleware => {
+  if (process.env.NODE_ENV !== 'production') {
+    const { composeWithDevTools } = require('redux-devtools-extension')
+    return composeWithDevTools(applyMiddleware(...middleware))
+  }
+  return applyMiddleware(...middleware)
+}
 
-const createStoreWithMiddleware = applyMiddleware(sagaMiddleware)(createStore)
+// const createStoreWithMiddleware = applyMiddleware(sagaMiddleware)(createStore)
 
 export default initialState => {
-	const store = createStoreWithMiddleware(rootReducer, initialState, enhancers)
+	const store = createStore(
+    rootReducer,
+    initialState,
+    bindMiddleware([sagaMiddleware])
+  )
 
 	store.runSagaTask = () => {
+		if (store.sagaTask) return
     store.sagaTask = sagaMiddleware.run(rootSaga)
 	}
 
@@ -25,4 +32,3 @@ export default initialState => {
 
 	return store
 }
-

@@ -1,13 +1,17 @@
-import { select, put, takeLatest } from 'redux-saga/effects'
+import { select, put, takeEvery } from 'redux-saga/effects'
 import es6promise from 'es6-promise'
-// import 'isomorphic-unfetch'
+import 'isomorphic-unfetch'
 
 import appActions from '../actions/appActions'
 
-// es6promise.polyfill()
+es6promise.polyfill()
 
 function * initSaga() {
 	console.log('>>>>> application saga init');
+	console.log('>>>>> application saga sync 1');
+	console.log('>>>>> application saga sync 2');
+	console.log('>>>>> application saga sync 3');
+
 	try {
 		const res = yield fetch('https://jsonplaceholder.typicode.com/users')
 		const data = yield res.json()
@@ -20,7 +24,7 @@ function * initSaga() {
 }
 
 function* appSaga() {
-	yield takeLatest(appActions.initApp.action, initSaga)
+	yield takeEvery(appActions.initApp.action, initSaga)
 }
 
-export default appSaga;
+export {initSaga};
