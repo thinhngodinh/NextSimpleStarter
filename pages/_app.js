@@ -25,7 +25,7 @@ class MyApp extends App {
 		return (
 			<Container>
 				<Head>
-					<title>Todo App</title>
+					<title>Tân Thiên Long - VNG</title>
 				</Head>
 				<Provider store={store}>
 					<Component {...pageProps} />
