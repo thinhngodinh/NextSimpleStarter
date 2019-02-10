@@ -28,7 +28,7 @@ export default class YoutubePlayer extends React.PureComponent {
 					onReady={this._onReady}
 				/>
 				<div className='front_cover'></div>
-				{closeProp && <a className='closeButton' href='javascript:;' onClick={closeProp}>x</a>}
+				{closeProp && <a className='closeButton' href='javascript:;' onClick={closeProp}></a>}
 			</div>
     );
   }

@@ -15,17 +15,25 @@ export default class Frame1 extends PureComponent {
 
 	staticImgPath = '/static/img'
 	state = {
-		playVid: false
+		playVid: false,
+		showTitle: false,
+		showPlayButton: false
+	}
+
+	componentDidMount() {
+		setTimeout(() => {this.setState({
+			showTitle: true
+		}, () => this.setState({showPlayButton: true}))}, 500)
 	}
 
 	render() {
-		const {playVid} = this.state
+		const {playVid, showTitle, showPlayButton} = this.state
 		return (
 			<Fragment>
 				<Styled.Logo alt='Tân Thiên Long - http://ttlm.zing.vn' src={`${this.staticImgPath}/game_logo.png`} />
 				<Styled.FrameContent>
-					<Styled.Title alt='Tuyệt tác kiếm hiệp Kim Dung' src={`${this.staticImgPath}/f1_title.png`} />
-					<Styled.PlayButton href='javascript:;' onClick={this.toggleVideoPlayer}>
+					<Styled.Title className={`${showTitle ? '': 'hidden'}`} alt='Tuyệt tác kiếm hiệp Kim Dung' src={`${this.staticImgPath}/f1_title.png`} />
+					<Styled.PlayButton className={`${showTitle ? '': 'hidden'}`} href='javascript:;' onClick={this.toggleVideoPlayer}>
 						<img src={`${this.staticImgPath}/play_button.png`} />
 					</Styled.PlayButton>
 

@@ -4,7 +4,7 @@ import Document, { Head, Main, NextScript } from 'next/document'
 export default class MyDocument extends Document {
 	render() {
 		return (
-			<html style={{ background: '#EEE', color: '#444', fontSize: 10 }}>
+			<html style={{  }}>
 				<Head>
 					<meta
 						name="viewport"
@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
 						href="https://code.getmdl.io/1.3.0/material.deep_purple-blue.min.css"
 					/> */}
 				</Head>
-				<body style={{ margin: 0}}>
+				<body>
 					<Main />
 					<NextScript />
 					{/* <script defer src="https://code.getmdl.io/1.3.0/material.min.js" /> */}

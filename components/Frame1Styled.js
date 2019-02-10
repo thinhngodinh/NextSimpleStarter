@@ -39,6 +39,11 @@ const Styled = {
 		top: 58%;
 		animation: 0.5s ${BlurEffect} ease-out;
 		transition: border-color 0.3s;
+
+		.hidden {
+			display: none
+		}
+
 		:hover {
 			::before {
 				border-color: #7c7c7c;
@@ -72,20 +77,16 @@ const Styled = {
 		align-items: center;
 		.closeButton {
 			display: block;
-			background: #1b1b1b;
+			background: url('/static/img/closebtn.png') no-repeat top center;
 			position: absolute;
 			top: -12px;
 			right: -12px;
-			text-decoration: none;
-			width: 25px;
-			height: 25px;
-			text-align: center;
-			border-radius: 20px;
-			font-size: 2rem;
-			line-height: 23px;
-			font-family: arial;
-			color: #ff6767;
-			border: 1px solid #ffffff30;
+			width: 32px;
+			height: 32px;
+			border-radius: 32px;
+			:hover {
+				background-position: bottom center;
+			}
 		}
 
 		.front_cover {
@@ -106,7 +107,7 @@ const Styled = {
 			~ div {
 				z-index: 1;
 				position: relative;
-				background: #00000070;
+				background: #000000;
 				box-shadow: 0px 0px 300px 100px rgba(0,0,0,0.5);
 			}
 		}
