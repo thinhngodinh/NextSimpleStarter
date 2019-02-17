@@ -8,6 +8,7 @@
   "dependencies": {
     "es6-promise": "4.2.5",
     "isomorphic-unfetch": "3.0.0",
+    "isomorphic-fetch": "*",
     "next": "latest",
     "next-redux-saga": "^3.0.0",
     "next-redux-wrapper": "^2.1.0",

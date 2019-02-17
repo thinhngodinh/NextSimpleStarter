@@ -1,5 +1,6 @@
 node_modules/
 static/sw.js
+static/sw-fe.js
 .next
 *-error.log
 *lock.json

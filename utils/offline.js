@@ -10,7 +10,7 @@ if (
 	'serviceWorker' in navigator
 ) {
 	navigator.serviceWorker
-		.register('/sw.js')
+		.register('/sw-fe.js')
 		.then(function(reg) {
 			console.log('Service worker registered (0-0) ')
 		})
