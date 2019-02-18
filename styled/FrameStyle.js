@@ -1,9 +1,9 @@
 import styled, {keyframes} from 'styled-components'
 
-import { pulse, fadeOutLeft, fadeOutRight } from 'react-animations'
+import { pulse, fadeOutLeft, flipInY } from 'react-animations'
 const pulseAnimation = keyframes`${pulse}`
 const fadeOutAnimation = keyframes`${fadeOutLeft}`
-const fadeOutRightAnimation = keyframes`${fadeOutRight}`
+const flipInYAnimation = keyframes`${flipInY}`
 const blurEffectInAnimation = keyframes`
 	0% {
 		opacity: 0;
@@ -133,6 +133,60 @@ export const StyledFrame4 = styled(StyledFrame)`
 	min-height: 720px;
 	background: url(/static/img/frame4_bg.jpg) no-repeat center top;
 	background-size: cover;
+	>div {
+		position: relative;
+		width: 960px;
+	}
+	.absolute-link {
+		position: absolute;
+		width: 50px;
+		height: 30px;
+		:hover {
+			.absolute-image {
+				transform: translate(-50%, 0);
+				opacity: 1;
+			}
+		}
+		&.lacduong {
+			top: 330px;
+			right: 580px;
+			width: 110px;
+			height: 118px;
+		}
+		&.hoangdia{
+			width: 185px;
+			height: 133px;
+			top: 300px;
+			right: 803px;
+		}
+		&.tochau {
+			top: 352px;
+			right: 242px;
+			width: 143px;
+			height: 118px;
+		}
+		&.hientrang {
+			width: 163px;
+			height: 133px;
+			top: 437px;
+			right: 698px;
+		}
+		&.yenvuong {
+			width: 157px;
+			height: 137px;
+			top: 425px;
+			right: 425px;
+		}
+	}
+	.absolute-image {
+		width: 300px;
+    position: absolute;
+    bottom: 31px;
+    left: 50%;
+		transform: translate(-50%, -10%);
+		transition: all .2s ease-in-out;
+		opacity: 0;
+	}
 `;
 
 export const StyledFrame5 = styled(StyledFrame)`
