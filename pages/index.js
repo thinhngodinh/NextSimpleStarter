@@ -3,14 +3,16 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import { connect } from 'react-redux'
 
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle, keyframes } from 'styled-components'
+import { fadeIn, bounceInDown } from 'react-animations'
 
 const Frame1 = dynamic(() => import('../components/Frame1'), {loading: () => <p>loading...</p>})
-const Frame2 = dynamic(() => import('../components/Frame2'), {loading: () => <p>loading...</p>})
+// const Frame2 = dynamic(() => import('../components/Frame2'), {loading: () => <p>loading...</p>})
 const Frame3 = dynamic(() => import('../components/Frame3'), {loading: () => <p>loading...</p>})
 const Frame4 = dynamic(() => import('../components/Frame4'), {loading: () => <p>loading...</p>})
-const Frame5 = dynamic(() => import('../components/Frame5'), {loading: () => <p>loading...</p>})
-const Frame6 = dynamic(() => import('../components/Frame6'), {loading: () => <p>loading...</p>})
+// const Frame5 = dynamic(() => import('../components/Frame5'), {loading: () => <p>loading...</p>})
+// const Frame6 = dynamic(() => import('../components/Frame6'), {loading: () => <p>loading...</p>})
+const RegisterForm = dynamic(() => import('../components/RegisterForm.js'), {loading: () => <p>loading...</p>})
 
 import appActions from '../actions/appActions'
 
@@ -29,6 +31,28 @@ const GlobalStyle = createGlobalStyle`
 	}
 	a {
 		text-decoration: none;
+	}
+	input,
+	label,
+	button,
+	textarea
+	{
+		margin:0;
+		border:0;
+		padding:0;
+		display:inline-block;
+		vertical-align:middle;
+		white-space:normal;
+		background:none;
+		line-height:1;
+
+		/* Browsers have different default form fonts */
+		font-size:13px;
+		font-family:Arial;
+	}
+	input:focus
+	{
+		outline:0;
 	}
 `
 
@@ -84,6 +108,88 @@ const StyledFrame5 = styled(StyledFrame)`
 	background-size: cover;
 `;
 
+const fadeInAnimation = keyframes`${fadeIn}`
+
+const StyleRegisterBox = styled.div`
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #00000050;
+	top: 0; left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.backdrop {
+		background: #00000080;
+		cursor: pointer;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		animation: 0.5s ${fadeInAnimation};
+	}
+	.modal-container {
+		background: url('/static/img/modalbg.jpg') no-repeat center center;
+		width: 350px;
+		height: 357px;
+		z-index: 1;
+		position: relative;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		animation: 1s ${bounceInDown};
+		.modal-content {
+			padding-top: 82px;
+			width: 100%;
+			height: 71%;
+			padding-right: 20px;
+			padding-left: 20px;
+			padding-bottom: 20px;
+			display: flex;
+			justify-content: center;
+			.button-ok {
+				display: inline-block;
+				width: 150px;
+				height: 43px;
+				background: url('/static/img/btn-ok.png') no-repeat center center;
+			}
+			.registerForm {
+				width: 100%;
+				padding: 0 35px;
+				text-align: center;
+			}
+			form {
+				.formfield {
+					margin-bottom: 15px;
+					label, input {
+						display: block;
+						margin-bottom: 5px;
+						width: 100%;
+						text-align: center;
+					}
+					label{ color: #9d1001;}
+					input {
+						padding: 10px 0;
+						background: #00000020;
+					}
+				}
+			}
+		}
+		.closebtn {
+			display: block;
+			background: url(/static/img/closebtn.png) no-repeat top center;
+			position: absolute;
+			top: -18px;
+			right: -18px;
+			width: 32px;
+			height: 32px;
+			border-radius: 32px;
+			:hover {
+				background-position: bottom center;
+			}
+		}
+	}
+`
+
 class Index extends React.Component {
 	static async getInitialProps({ store, isServer }) {
 		// dispatch action to saga for initial data
@@ -96,6 +202,10 @@ class Index extends React.Component {
 	constructor (props) {
 		super(props)
 		this.handleNextFrame = this.handleNextFrame.bind(this)
+		this.state = {
+			registerBox: false
+		}
+		this.toggleModal = this.toggleModal.bind(this)
 	}
 
 	handleNextFrame (e) {
@@ -103,23 +213,30 @@ class Index extends React.Component {
 		console.log('handle next frame function invoke')
 	}
 
+	toggleModal (e) {
+		this.setState({
+			registerBox: !this.state.registerBox
+		})
+	}
+
 	render() {
 		const { stars, appState } = this.props
+		const { registerBox } = this.state
 		return (
 			<React.Fragment>
 				<StyledFrame1>
-					<Frame1 />
+					<Frame1 toggleModal={this.toggleModal} />
 					<NextPageButton href='javascript:;' onClick={this.handleNextFrame}>
 						<img src='/static/img/next_frame_button.png' />
 					</NextPageButton>
 				</StyledFrame1>
 
-				<StyledFrame2>
+				{/* <StyledFrame2>
 					<Frame2 />
 					<NextPageButton href='javascript:;' onClick={this.handleNextFrame}>
 						<img src='/static/img/next_frame_button.png' />
 					</NextPageButton>
-				</StyledFrame2>
+				</StyledFrame2> */}
 
 				<StyledFrame3>
 					<Frame3 />
@@ -135,7 +252,7 @@ class Index extends React.Component {
 					</NextPageButton>
 				</StyledFrame4>
 
-				<StyledFrame5>
+				{/* <StyledFrame5>
 					<Frame5 />
 					<NextPageButton href='javascript:;' onClick={this.handleNextFrame}>
 						<img src='/static/img/next_frame_button.png' />
@@ -144,7 +261,18 @@ class Index extends React.Component {
 
 				<StyledFrame>
 					<Frame6 />
-				</StyledFrame>
+				</StyledFrame> */}
+				{registerBox &&
+					<StyleRegisterBox>
+						<div className='backdrop' onClick={this.toggleModal}></div>
+						<div className='modal-container'>
+							<a href='javascript:;' className='closebtn' onClick={this.toggleModal}></a>
+							<div className='modal-content'>
+								<RegisterForm />
+							</div>
+						</div>
+					</StyleRegisterBox>
+				}
 				<GlobalStyle />
 			</React.Fragment>
 		)
