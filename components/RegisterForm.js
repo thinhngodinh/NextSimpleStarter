@@ -1,46 +1,46 @@
 import React from 'react'
-import {compose} from 'redux';
-import {connect} from 'react-redux';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
 import { Form, Field, reduxForm } from 'redux-form'
 import userActions from '../actions/userActions'
 
 const validatePhone = (strPhone) => {
 	const trimUnicode = (str) => {
-    // Chuyển hết sang chữ thường
-    str = str.trim();
-    str = str.toLowerCase();
-    // xóa dấu
-    str = str.replace(/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/g, 'a');
-    str = str.replace(/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/g, 'e');
-    str = str.replace(/(ì|í|ị|ỉ|ĩ)/g, 'i');
-    str = str.replace(/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/g, 'o');
-    str = str.replace(/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/g, 'u');
-    str = str.replace(/(ỳ|ý|ỵ|ỷ|ỹ)/g, 'y');
-    str = str.replace(/(đ)/g, 'd');
+		// Chuyển hết sang chữ thường
+		str = str.trim();
+		str = str.toLowerCase();
+		// xóa dấu
+		str = str.replace(/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/g, 'a');
+		str = str.replace(/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/g, 'e');
+		str = str.replace(/(ì|í|ị|ỉ|ĩ)/g, 'i');
+		str = str.replace(/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/g, 'o');
+		str = str.replace(/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/g, 'u');
+		str = str.replace(/(ỳ|ý|ỵ|ỷ|ỹ)/g, 'y');
+		str = str.replace(/(đ)/g, 'd');
 
-    // Xóa ký tự đặc biệt
-    str = str.replace(/([^0-9a-z-\s])/g, '');
-    str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'| |\"|\&|\#|\[|\]|\-|~|$|_/g, '');
+		// Xóa ký tự đặc biệt
+		str = str.replace(/([^0-9a-z-\s])/g, '');
+		str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'| |\"|\&|\#|\[|\]|\-|~|$|_/g, '');
 
-    // Xóa khoảng trắng thay bằng ký tự -
-    str = str.replace(/(\s+)/g, '-');
-    //
-    str = str.replace(/-+-/g, '-'); // thay thế 2- thành 1-
-    // str = str.replace(/-/g, ''); // thay thế - thành ''
+		// Xóa khoảng trắng thay bằng ký tự -
+		str = str.replace(/(\s+)/g, '-');
+		//
+		str = str.replace(/-+-/g, '-'); // thay thế 2- thành 1-
+		// str = str.replace(/-/g, ''); // thay thế - thành ''
 
-    // xóa phần dự - ở đầu
-    str = str.replace(/^-+/g, '');
+		// xóa phần dự - ở đầu
+		str = str.replace(/^-+/g, '');
 
-    // xóa phần dư - ở cuối
-    str = str.replace(/-+$/g, '');
+		// xóa phần dư - ở cuối
+		str = str.replace(/-+$/g, '');
 
-    // return
-    return str;
-  };
+		// return
+		return str;
+	};
 	const arrayPhone = ['09', '03', '07', '08', '05'];
 	const phoneFormat = trimUnicode(`${strPhone}`);
-	const strFirt = phoneFormat.slice(0,2);
-  return (arrayPhone.includes(strFirt) && (phoneFormat.length === 10)) ? true : false;
+	const strFirt = phoneFormat.slice(0, 2);
+	return (arrayPhone.includes(strFirt) && (phoneFormat.length === 10)) ? true : false;
 };
 
 const RenderField = ({
@@ -93,41 +93,53 @@ class RegisterForm extends React.Component {
 	}
 
 	render() {
-		const {handleSubmit, isRegister, registerError, registerErrorMsg, fullname} = this.props
+		const { handleSubmit, isRegister, registerError, registerErrorMsg, fullname, toggleModal } = this.props
 		return (
-			<div className='registerForm'>
-				<div className='loading' />
-				{isRegister &&
-					<div>
-						{registerError && <p>
-							{registerErrorMsg} Vui lòng thử lại.<br /> <br />
-							<button
-								onClick={this.resetForm}
-								className='button-ok'></button>
-						</p>}
-						{!registerError && <p>
-							Đăng ký thành công <span className='register-name'>{fullname}</span>
-						</p>}
+			<div className='modal-container'>
+				<a href='javascript:;' className='closebtn' onClick={toggleModal}></a>
+				{!isRegister && <img src='/static/img/modal_title_register.png' className='modal-title' />}
+				{isRegister && <img src='/static/img/modal_title_thong_bao.png' className='modal-title' />}
+				<div className='modal-content'>
+					<div className='registerForm'>
+						<div className='loading' />
+						{isRegister &&
+							<div className='resp'>
+								{registerError && <p className='message'>
+									{registerErrorMsg}<br />Vui lòng thử lại.<br /> <br />
+									<button
+										onClick={this.resetForm}
+										className='button-ok'></button>
+								</p>}
+								{!registerError && <p className='message'>
+									<span className='register-name'>{fullname}</span> đã lưu danh đoạt bảo thành công.
+									Mời <span className='register-name'>{fullname}</span> tiếp tục khám phá các tính năng
+									đặc sắc của game nhé <br /><br />
+									<button
+										onClick={toggleModal}
+										className='button-ok'></button>
+									</p>}
+							</div>
+						}
+						{!isRegister &&
+							<Form onSubmit={handleSubmit}>
+								<div className='formfield'>
+									<Field name='fullname' type='text' component={RenderField} label='Họ Tên' placeholder='Họ Tên' />
+								</div>
+								<div className='formfield'>
+									<Field name='phone' type='text' component={RenderField} label='Số Điện Thoại' placeholder='Số Điện Thoại' />
+								</div>
+								<div className='formfield'>
+									<Field name='email' type='text' component={RenderField} label='Email' placeholder='Email' />
+								</div>
+								<div className='formfield'>
+									<button
+										type='submit'
+										className='button-ok'></button>
+								</div>
+							</Form>
+						}
 					</div>
-				}
-				{!isRegister &&
-					<Form onSubmit={handleSubmit}>
-						<div className='formfield'>
-							<Field name='fullname' type='text' component={RenderField} label='Họ Tên' placeholder='Họ Tên' />
-						</div>
-						<div className='formfield'>
-							<Field name='phone' type='text' component={RenderField} label='Số Điện Thoại' placeholder='Số Điện Thoại' />
-						</div>
-						<div className='formfield'>
-							<Field name='email' type='text' component={RenderField} label='Email' placeholder='Email' />
-						</div>
-						<div className='formfield'>
-							<button
-								type='submit'
-								className='button-ok'></button>
-						</div>
-					</Form>
-				}
+				</div>
 			</div>
 		)
 	}

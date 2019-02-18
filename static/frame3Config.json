@@ -1,0 +1,37 @@
+[
+	{
+		"id": "1",
+		"background": "frame3_caibang.jpg",
+		"button": "cb_button.png",
+		"content": "content-cb.png",
+		"textContent": ""
+	},
+	{
+		"id": "2",
+		"background": "frame3_ngamy.jpg",
+		"button": "ngamy_btn.png",
+		"content": "content-ngami.png",
+		"textContent": ""
+	},
+	{
+		"id": "3",
+		"background": "frame3_thienson.jpg",
+		"button": "thienson_btn.png",
+		"content": "content-thienson.png",
+		"textContent": ""
+	},
+	{
+		"id": "4",
+		"background": "frame3_tieudao.jpg",
+		"button": "tieudao_btn.png",
+		"content": "content-tieudao.png",
+		"textContent": ""
+	},
+	{
+		"id": "5",
+		"background": "frame3_thienlong.jpg",
+		"button": "thienlong_btn.png",
+		"content": "content-thienlong.png",
+		"textContent": ""
+	}
+]

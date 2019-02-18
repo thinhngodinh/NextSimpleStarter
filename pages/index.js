@@ -34,7 +34,7 @@ class Index extends React.Component {
 		super(props)
 		this.handleNextFrame = this.handleNextFrame.bind(this)
 		this.state = {
-			registerBox: false
+			registerBox: false,
 		}
 		this.toggleModal = this.toggleModal.bind(this)
 	}
@@ -52,7 +52,7 @@ class Index extends React.Component {
 
 	render() {
 		const { totalUsers } = this.props
-		const { registerBox } = this.state
+		const { registerBox, f3Bg } = this.state
 		return (
 			<React.Fragment>
 				<StyledFrame1>
@@ -71,21 +71,12 @@ class Index extends React.Component {
 
 				<StyledFrame4>
 					{Frame4 && <Frame4 />}
-					<NextPageButton href='javascript:;' onClick={this.handleNextFrame}>
-						<img src='/static/img/next_frame_button.png' />
-					</NextPageButton>
 				</StyledFrame4>
 
 				{registerBox &&
 					<StyleRegisterBox>
 						<div className='backdrop'></div>
-						<div className='modal-container'>
-							<a href='javascript:;' className='closebtn' onClick={this.toggleModal}></a>
-							<img src='/static/img/modal_title_register.png' className='modal-title' />
-							<div className='modal-content'>
-								<RegisterForm />
-							</div>
-						</div>
+						<RegisterForm toggleModal={this.toggleModal} />
 					</StyleRegisterBox>
 				}
 				<GlobalStyle />

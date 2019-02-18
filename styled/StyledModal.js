@@ -47,12 +47,18 @@ const StyleRegisterBox = styled.div`
 			padding-bottom: 20px;
 			display: flex;
 			justify-content: center;
+			.resp{
+				p.message {
+					font-size: 1.4rem;
+					line-height: 1.6;
+				}
+			}
 			.button-ok {
 				display: inline-block;
 				width: 150px;
 				height: 43px;
 				cursor: pointer;
-				filter: grayscale(50%);
+				filter: grayscale(30%);
 				background: url('/static/img/btn-ok.png') no-repeat center center;
 				transition: filter 0.3s ease-in;
 				:hover {

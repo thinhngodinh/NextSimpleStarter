@@ -39,6 +39,19 @@ const Styled = {
 			height: 142px;
 			top: 520px;
 			left: 0;
+			.user-counter{
+				display: block;
+				position: absolute;
+				font-size: 2rem;
+				color: #fff;
+				top: 107px;
+				right: 872px;
+				text-align: right;
+			}
+			.totaluser-gift {
+				position: absolute;
+				right: 240px;
+			}
 			.btn-register {
 				display: block;
 				position: absolute;
