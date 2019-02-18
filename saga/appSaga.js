@@ -1,6 +1,6 @@
 import { select, put, takeEvery } from 'redux-saga/effects'
 import es6promise from 'es6-promise'
-import 'isomorphic-unfetch'
+import 'isomorphic-fetch'
 
 import appActions from '../actions/appActions'
 

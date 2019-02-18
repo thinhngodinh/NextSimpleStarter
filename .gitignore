@@ -1,6 +1,10 @@
 node_modules/
 static/sw.js
+<<<<<<< Updated upstream
 static/sw-fe.js
+=======
+static__
+>>>>>>> Stashed changes
 .next
 *-error.log
 *lock.json

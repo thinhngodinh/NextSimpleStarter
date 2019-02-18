@@ -3,7 +3,10 @@ import API_URL from '../static/apiConst';
 export default class ApiService {
 	constructor(httpService) {
 		this.httpService = httpService
-		this._defaultRequestHeader = null
+		this._defaultRequestHeader = {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		}
 	}
 
 	setHeader(requestHeader) {
@@ -22,28 +25,17 @@ export default class ApiService {
 		result = result.replace(' ', '%20')
 		return url + result
 	}
-
-	login(authData) {
-		const { authInfor, appConfig } = authData;
-		const requestHeaders = {
-			'Content-Type': 'application/json'
-		};
-		const requestBody = {
-			username: authInfor.username,
-			password: authInfor.password,
-			client_id: appConfig.client_id,
-			client_secret: appConfig.client_secret,
-			grant_type: appConfig.grant_type,
-			database: appConfig.database
-		};
-		return this.httpService.post(API_URL.LOGIN, requestBody, requestHeaders)
+	registerUser({fullname, email, phone}) {
+		return this.httpService.post(
+			API_URL.REGISTER,
+			{fullname, email, phone},
+			this._defaultRequestHeader
+		)
 	}
-
-	logout() {
-		return this.httpService.get(API_URL.LOGOUT, this._defaultRequestHeader)
-	}
-
-	getUser() {
-		return this.httpService.get(API_URL.GET_USER_INFO, undefined, this._defaultRequestHeader)
+	getTotalUser() {
+		return this.httpService.get(
+			API_URL.GET_TOTAL_USERS,
+			this._defaultRequestHeader
+		)
 	}
 }

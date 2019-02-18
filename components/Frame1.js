@@ -21,13 +21,14 @@ export default class Frame1 extends PureComponent {
 
 	render() {
 		const {showTitle} = this.state
-		const { toggleModal } = this. props
+		const { toggleModal, totalUsers } = this. props
 		return (
 			<Fragment>
 				<Styled.Logo alt='Tân Thiên Long - http://ttlm.zing.vn' src={`${this.staticImgPath}/game_logo.png`} />
 				<Styled.FrameContent>
 					<Styled.Title className={`${showTitle ? '': 'hidden'}`} alt='Tuyệt tác kiếm hiệp Kim Dung' src={`${this.staticImgPath}/f1_title.png`} />
 					<div className='framefooter'>
+						<span>{totalUsers || 'N/A'}</span>
 						<a href='javascript:;' className='btn-register' onClick={toggleModal}>
 							<img src={`${this.staticImgPath}/btn_register.png`} />
 						</a>

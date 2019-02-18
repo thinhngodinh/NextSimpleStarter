@@ -1,15 +1,43 @@
-import userAction from '../actions/userActions'
-import appAction from '../actions/appActions'
+import userActions from '../actions/userActions'
+import appActions from '../actions/appActions'
 
 const initUserState = () => ({
+	fullname: '',
 	email: '',
-	phone: ''
+	phone: '',
+	isRegister: false,
+	registerError: false,
+	registerErrorMsg: '',
+	totalUsers: 0
 });
 
 const ACTION_HANDLERS = {
-	[appAction.setUserData.action]: (state, payload) => ({
+	[userActions.setUserData.action]: (state, payload) => ({
 		...state,
-		payload
+		fullname: payload.fullname,
+		email: payload.email,
+		phone: payload.phone,
+		isRegister: true,
+	}),
+	[appActions.setTotalUsers.action]: (state, payload) => ({
+		...state,
+		totalUsers: payload.totalUsers
+	}),
+	[appActions.setUserAsRegisterd.action]: (state) => ({
+		...state,
+		isRegister: true
+	}),
+	[userActions.registerNew.action]: (state, payload) => ({
+		...state,
+		isRegister: false,
+		registerError: false,
+		registerErrorMsg: ''
+	}),
+	[appActions.setRegisterdError.action]: (state, payload) => ({
+		...state,
+		isRegister: true,
+		registerError: true,
+		registerErrorMsg: payload.msg || ''
 	})
 }
 

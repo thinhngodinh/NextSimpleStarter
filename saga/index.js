@@ -1,14 +1,10 @@
-import {all, call, takeLatest} from 'redux-saga/effects'
+import {all, call} from 'redux-saga/effects'
 
-import appActions from '../actions/appActions'
+import userSaga from './userSaga'
 
-import loginSaga from './loginSaga'
-import { initSaga } from './appSaga'
-
-function * rootSaga () {
+function * rootSaga (apiService) {
 	yield all([
-		yield takeLatest(appActions.initApp.action, initSaga),
-		call(loginSaga)
+		call(userSaga, apiService)
 	])
 }
 

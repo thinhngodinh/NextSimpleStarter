@@ -18,7 +18,19 @@ const appActions = {
 	setGiftList: {
 		action: '_SET_GIFT_LIST_',
 		invoke: giftList => ({ type: appActions.setGiftList.action, giftList })
-	}
+	},
+	setRegisterdError: {
+		action: '_REGISTER_ERROR',
+		invoke: (msg) => ({ type: appActions.setRegisterdError.action, msg })
+	},
+	setUserAsRegisterd: {
+		action: '_SET_USER_AS_REGISTER_',
+		invoke: () => ({ type: appActions.setUserAsRegisterd.action })
+	},
+	setTotalUsers: {
+		action: '_SET_TOTAL_USER_',
+		invoke: (totalUsers) => ({ type: appActions.setTotalUsers.action, totalUsers })
+	},
 }
 
 export default appActions;
