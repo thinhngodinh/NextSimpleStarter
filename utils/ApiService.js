@@ -33,8 +33,14 @@ export default class ApiService {
 		)
 	}
 	getTotalUser() {
+		if (process.env.NODE_ENV !== 'production') {
+			return this.httpService.get(
+				API_URL.GET_TOTAL_USERS,
+				this._defaultRequestHeader
+			)
+		}
 		return this.httpService.get(
-			API_URL.GET_TOTAL_USERS,
+			API_URL.GET_TOTAL_USERS_PRODUCTION,
 			this._defaultRequestHeader
 		)
 	}
