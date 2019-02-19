@@ -1,9 +1,11 @@
 import { PureComponent, Fragment } from 'react'
+import AnimatedNumber from 'react-animated-number';
 import Styled from './Frame1Styled'
 
 export default class Frame1 extends PureComponent {
 	constructor(props) {
 		super(props)
+		this.numberFormat = new Intl.NumberFormat('vi-Vn');
 	}
 
 	staticImgPath = '/static/img'
@@ -28,7 +30,14 @@ export default class Frame1 extends PureComponent {
 				<Styled.FrameContent>
 					<Styled.Title className={`${showTitle ? '': 'hidden'}`} alt='Tuyệt tác kiếm hiệp Kim Dung' src={`${this.staticImgPath}/f1_title.png`} />
 					<div className='framefooter'>
-						<span className='user-counter'>{totalUsers || 'N/A'}</span>
+						<AnimatedNumber
+							className='user-counter'
+							duration='5000'
+							stepPrecision={0}
+							value={totalUsers}
+							formatValue={(n) => this.numberFormat.format(n)}
+						/>
+						{/* <span className='user-counter'>{totalUsers || 'N/A'}</span> */}
 						<a href='javascript:;' className='btn-register' onClick={toggleModal}>
 							<img src={`${this.staticImgPath}/btn_register.png`} />
 						</a>

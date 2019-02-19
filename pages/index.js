@@ -9,6 +9,8 @@ import StyleRegisterBox from '../styled/StyledModal'
 import GlobalStyle from '../styled/GlobalStyle'
 import { NextPageButton, StyledFrame1, StyledFrame3, StyledFrame4 } from '../styled/FrameStyle'
 
+import Footer from '../components/Footer'
+
 const Frame1 = dynamic(() => import('../components/Frame1'), {loading: () => <p>loading...</p>})
 const Frame3 = dynamic(() => import('../components/Frame3'), {loading: () => <p>loading...</p>})
 const Frame4 = dynamic(() => import('../components/Frame4'), {loading: () => <p>loading...</p>})
@@ -72,7 +74,7 @@ class Index extends React.Component {
 				<StyledFrame4>
 					{Frame4 && <Frame4 />}
 				</StyledFrame4>
-
+				<Footer />
 				{registerBox &&
 					<StyleRegisterBox>
 						<div className='backdrop'></div>

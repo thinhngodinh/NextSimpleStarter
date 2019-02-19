@@ -12,6 +12,7 @@
     "next-redux-saga": "^3.0.0",
     "next-redux-wrapper": "^2.1.0",
     "react": "^16.7.0",
+    "react-animated-number": "^0.4.4",
     "react-animations": "^1.0.0",
     "react-dom": "^16.7.0",
     "react-pose": "^4.0.6",
