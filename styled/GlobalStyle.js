@@ -1,4 +1,11 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, keyframes } from 'styled-components'
+
+const backgroundAnimation = keyframes`
+	0%{background-position:19% 0%}
+	50%{background-position:82% 100%}
+	100%{background-position:19% 0%}
+}
+`
 
 const GlobalStyle = createGlobalStyle`
 	html {
@@ -10,6 +17,10 @@ const GlobalStyle = createGlobalStyle`
   body {
 		margin: 0 auto;
 		max-width: 1400px;
+		background: linear-gradient(110deg, #121212, #4b4b4b);
+		background-size: 400% 400%;
+
+		animation: ${backgroundAnimation} 12s ease infinite;
 	}
 	.hidden {
 		display: none

@@ -32,7 +32,7 @@ export default class Frame1 extends PureComponent {
 					<div className='framefooter'>
 						<AnimatedNumber
 							className='user-counter'
-							duration='5000'
+							duration={5000}
 							stepPrecision={0}
 							value={totalUsers}
 							formatValue={(n) => this.numberFormat.format(n)}
