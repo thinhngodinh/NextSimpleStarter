@@ -8,7 +8,8 @@ const GlobalStyle = createGlobalStyle`
 		font-family: 'arial'
 	}
   body {
-    margin: 0
+		margin: 0 auto;
+		max-width: 1400px;
 	}
 	.hidden {
 		display: none
