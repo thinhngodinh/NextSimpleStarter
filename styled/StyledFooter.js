@@ -1,7 +1,7 @@
 import styled, { createGlobalStyle, keyframes } from 'styled-components'
 
 const StyledFooter = styled.div`
-	background: #00000020;
+	background: #ffffff;
 	display: flex;
 	justify-content: center;
 	>div {

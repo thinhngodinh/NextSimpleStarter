@@ -42,9 +42,7 @@ class Index extends React.Component {
 	}
 
 	handleNextFrame (e) {
-		const {props} = this;
 		const frameEl = e.currentTarget.parentElement
-		console.log('handle next frame function invoke', frameEl.offsetHeight + frameEl.offsetTop)
 		window.scroll({
 			top: frameEl.offsetHeight + frameEl.offsetTop,
 			left: 0,
