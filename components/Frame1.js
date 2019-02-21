@@ -44,7 +44,17 @@ export default class Frame1 extends PureComponent {
 						{totalUsers < 50000 && <img className='totaluser-gift' src={`${this.staticImgPath}/moc1-3.png`} />}
 						{totalUsers >= 50000 && totalUsers < 100000 && <img className='totaluser-gift' src={`${this.staticImgPath}/moc2-3.png`} />}
 						{totalUsers >= 100000 && <img className='totaluser-gift' src={`${this.staticImgPath}/moc3-3.png`} />}
-
+						<div className='qr-scan'>
+							<img src={`${this.staticImgPath}/qrscan.png`} />
+							<a href='javascript:;' alt='link to play-store' class='download playstore'></a>
+							<a href='javascript:;' alt='link to apple-store' class='download applestore'></a>
+							<a href='javascript:;' alt='link to pc-download' class='download pc'></a>
+							<a href='javascript:;' alt='link to apk-file' class='download apk'></a>
+							<a href='javascript:;' alt='link to topup page' class='download topup'></a>
+							<a href='javascript:;' alt='link to topup page' class='footer home'></a>
+							<a href='javascript:;' alt='link to topup page' class='footer fb'></a>
+							<a href='javascript:;' alt='link to topup page' class='footer youtube'></a>
+						</div>
 					</div>
 				</Styled.FrameContent>
 

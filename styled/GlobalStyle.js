@@ -17,10 +17,12 @@ const GlobalStyle = createGlobalStyle`
   body {
 		margin: 0 auto;
 		max-width: 1400px;
-		background: linear-gradient(110deg, #121212, #4b4b4b);
-		background-size: 400% 400%;
-
-		animation: ${backgroundAnimation} 12s ease infinite;
+		background: url(/static/img/page_bg.jpg) no-repeat center top;
+		background-size: cover;
+		background-attachment: fixed;
+	}
+	#__next {
+		box-shadow: 0px 3px 106px -28px rgba(0,0,0,1);
 	}
 	.hidden {
 		display: none

@@ -85,11 +85,11 @@ const StyleRegisterBox = styled.div`
 					label{ color: #9d1001;}
 					input {
 						padding: 10px 0;
-						background: #00000020;
+						background: rgba(0, 0, 0, 0.15);
 					}
 					.error {
 						input {
-							border: 1px solid #ff000066;
+							border: 1px solid rgba(255, 0, 0, 0.4);
 						}
 					}
 					.field {

@@ -34,6 +34,36 @@ export const StyledFrame = styled.div`
 	display: flex;
 	justify-content: center;
 	position: relative;
+	.qr-scan{
+		position: fixed;
+    right: 0;
+    top: 50%;
+		transform: translate(0, -50%);
+		z-index: 1;
+		.footer,
+		.download {
+			position: absolute;
+			display: block;
+		}
+		.footer {
+			width: 34px;
+			height: 34px;
+			top: 500px;
+			&.home{ right: 111px; }
+			&.youtube { right: 28px; }
+			&.fb { right: 68px; }
+		}
+		.download {
+			width: 125px;
+			height: 30px;
+			right: 26px;
+			&.playstore { top: 240px; }
+			&.applestore { top: 201px; }
+			&.pc { top: 280px; }
+			&.apk { top: 320px; }
+			&.topup { top: 462px; }
+		}
+	}
 `;
 
 export const NextPageButton = styled.a`
@@ -55,17 +85,11 @@ export const StyledFrame1 = styled(StyledFrame)`
 export const StyledFrame2 = styled(StyledFrame)`
 	background: url(/static/img/frame2bg.jpg) no-repeat center top;
 	background-size: cover;
-	.qr-scan{
-		position: absolute;
-    right: 0;
-    top: 50%;
-		transform: translate(0, -50%);
-		z-index: 1;
-	}
 `;
 
 export const StyledFrame3 = styled(StyledFrame)`
 	min-height: 720px;
+	overflow: hidden;
 	> div {
 		width: 960px;
 		display: flex;
@@ -115,6 +139,9 @@ export const StyledFrame3 = styled(StyledFrame)`
 			li {
 				display: inline-block;
 				margin: 5px;
+				&.active .btn-pager {
+					background-position: bottom left;
+				}
 			}
 		}
 		.btn-pager {

@@ -10,6 +10,7 @@ export default class Frame3 extends PureComponent {
 			activeItem: f3Config[0],
 			isHide: false
 		}
+		this.interval = null;
 	}
 
 	handleChangeView(stageItem) {
@@ -37,7 +38,7 @@ export default class Frame3 extends PureComponent {
 					<div className='navigation'>
 						<ul>
 							{f3Config.map(item => (
-								<li key={item.id}>
+								<li key={item.id} className={`${item.id === activeItem.id ? 'active': ''}`}>
 									<a
 										onClick={() => this.handleChangeView(item)}
 										href='javascript:;'

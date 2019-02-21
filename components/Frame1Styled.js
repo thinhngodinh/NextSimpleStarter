@@ -2,7 +2,6 @@ import styled, { keyframes } from 'styled-components'
 
 import { rollIn, fadeIn, pulse } from 'react-animations'
 
-const rollInAnimation = keyframes`${rollIn}`
 const fadeInAnimation = keyframes`${fadeIn}`
 const pulseAnimation = keyframes`${pulse}`
 
@@ -66,7 +65,8 @@ const Styled = {
 	Logo: styled.img`
 		position: absolute;
 		top: 20px;
-		left: 20px;
+		left: 50%;
+    transform: translate(-50%, 0);
 	`,
 	Title: styled.img`
 		opacity: 1;
