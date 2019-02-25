@@ -4,7 +4,7 @@ import f3Config from '../static/frame3Config.json'
 
 const initAppState = () => ({
 	frame3Cfg: f3Config,
-	stickyCfg: {}
+	stickyCfg: null
 });
 
 const ACTION_HANDLERS = {

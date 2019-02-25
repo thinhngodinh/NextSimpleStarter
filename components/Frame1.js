@@ -5,7 +5,7 @@ import Styled from './Frame1Styled'
 export default class Frame1 extends PureComponent {
 	constructor(props) {
 		super(props)
-		this.numberFormat = new Intl.NumberFormat('vi-Vn');
+		this.numberFormat = new Intl.NumberFormat('vi-Vn')
 	}
 
 	staticImgPath = '/static/img'

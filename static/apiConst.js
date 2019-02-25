@@ -4,7 +4,7 @@ const apiConst = {
 	REGISTER: (isInternal) => (HOST(isInternal) + '/userregisters'),
 	GET_TOTAL_USERS: (isInternal) => (HOST(isInternal) + '/usernumbers/count'),
 	FRAME_3_CFG: (isInternal) => (HOST(isInternal) + '/frame3Configs'),
-	STICKY_BAR_CFG: (isInternal) => (HOST(isInternal) + '/downloadconfigs')
+	STICKY_BAR_CFG: (isInternal) => (HOST(isInternal) + '/stickyconfigs')
 }
 
 export default apiConst
