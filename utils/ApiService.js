@@ -26,7 +26,7 @@ export default class ApiService {
 		return url + result
 	}
 
-	registerUser(isServer = false, {fullname, email, phone}) {
+	registerUser({fullname, email, phone}, isServer = false, ) {
 		return this.httpService.post(
 			API_URL.REGISTER(isServer),
 			{fullname, email, phone},
