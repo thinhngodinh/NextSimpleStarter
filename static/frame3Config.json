@@ -1,37 +1,37 @@
 [
 	{
 		"id": "1",
-		"background": "frame3_caibang.jpg",
-		"button": "cb_button.png",
-		"content": "content-cb.png",
+		"background": "/static/img/frame3_caibang.jpg",
+		"button": "/static/img/cb_button.png",
+		"content": "/static/img/content-cb.png",
 		"textContent": ""
 	},
 	{
 		"id": "2",
-		"background": "frame3_ngamy.jpg",
-		"button": "ngamy_btn.png",
-		"content": "content-ngami.png",
+		"background": "/static/img/frame3_ngamy.jpg",
+		"button": "/static/img/ngamy_btn.png",
+		"content": "/static/img/content-ngami.png",
 		"textContent": ""
 	},
 	{
 		"id": "3",
-		"background": "frame3_thienson.jpg",
-		"button": "thienson_btn.png",
-		"content": "content-thienson.png",
+		"background": "/static/img/frame3_thienson.jpg",
+		"button": "/static/img/thienson_btn.png",
+		"content": "/static/img/content-thienson.png",
 		"textContent": ""
 	},
 	{
 		"id": "4",
-		"background": "frame3_tieudao.jpg",
-		"button": "tieudao_btn.png",
-		"content": "content-tieudao.png",
+		"background": "/static/img/frame3_tieudao.jpg",
+		"button": "/static/img/tieudao_btn.png",
+		"content": "/static/img/content-tieudao.png",
 		"textContent": ""
 	},
 	{
 		"id": "5",
-		"background": "frame3_thienlong.jpg",
-		"button": "thienlong_btn.png",
-		"content": "content-thienlong.png",
+		"background": "/static/img/frame3_thienlong.jpg",
+		"button": "/static/img/thienlong_btn.png",
+		"content": "/static/img/content-thienlong.png",
 		"textContent": ""
 	}
 ]

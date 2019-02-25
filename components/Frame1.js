@@ -23,7 +23,7 @@ export default class Frame1 extends PureComponent {
 
 	render() {
 		const {showTitle} = this.state
-		const { toggleModal, totalUsers } = this. props
+		const { toggleModal, totalUsers, stickyCfg } = this. props
 		return (
 			<Fragment>
 				<Styled.Logo alt='Tân Thiên Long - http://ttlm.zing.vn' src={`${this.staticImgPath}/game_logo.png`} />
@@ -46,14 +46,7 @@ export default class Frame1 extends PureComponent {
 						{totalUsers >= 100000 && <img className='totaluser-gift' src={`${this.staticImgPath}/moc3-3.png`} />}
 						<div className='qr-scan'>
 							<img src={`${this.staticImgPath}/qrscan.png`} />
-							<a href='javascript:;' alt='link to play-store' className='download playstore'></a>
-							<a href='javascript:;' alt='link to apple-store' className='download applestore'></a>
-							<a href='javascript:;' alt='link to pc-download' className='download pc'></a>
-							<a href='javascript:;' alt='link to apk-file' className='download apk'></a>
-							<a href='javascript:;' alt='link to topup page' className='download topup'></a>
-							<a href='javascript:;' alt='link to topup page' className='footer home'></a>
-							<a href='javascript:;' alt='link to topup page' className='footer fb'></a>
-							<a href='javascript:;' alt='link to topup page' className='footer youtube'></a>
+							{stickyCfg && stickyCfg.map(stickyItem => <a key={stickyItem.id} href={stickyItem.link} className={stickyItem.type}></a>)}
 						</div>
 					</div>
 				</Styled.FrameContent>

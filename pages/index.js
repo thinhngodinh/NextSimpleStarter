@@ -27,6 +27,12 @@ class Index extends React.Component {
 
 			const totalUsersData = await apiService.getTotalUser()
 			store.dispatch(appActions.setTotalUsers.invoke(totalUsersData.data))
+
+			const frame3Cfg = await apiService.getFrame3Config()
+			store.dispatch(appActions.setFrame3Cfg.invoke(frame3Cfg))
+
+			const stickyCfg = await apiService.getTickyBarConfig()
+			store.dispatch(appActions.setTickyBarCfg.invoke(stickyCfg))
 			return { isServer }
 		}
 
@@ -57,19 +63,22 @@ class Index extends React.Component {
 	}
 
 	render() {
-		const { totalUsers } = this.props
-		const { registerBox, f3Bg } = this.state
+		const { totalUsers, appState } = this.props
+		const { registerBox } = this.state
 		return (
 			<React.Fragment>
 				<StyledFrame1>
-					{Frame1 && <Frame1 totalUsers={totalUsers} toggleModal={this.toggleModal} />}
+					{Frame1 && <Frame1
+												stickyCfg={appState.stickyCfg}
+												totalUsers={totalUsers}
+												toggleModal={this.toggleModal} />}
 					<NextPageButton href='javascript:;' onClick={this.handleNextFrame}>
 						<img src='/static/img/next_frame_button.png' />
 					</NextPageButton>
 				</StyledFrame1>
 
 				<StyledFrame3>
-					{Frame3 && <Frame3 />}
+					{Frame3 && <Frame3 config={appState.frame3Cfg} />}
 					<NextPageButton href='javascript:;' onClick={this.handleNextFrame}>
 						<img src='/static/img/next_frame_button.png' />
 					</NextPageButton>

@@ -25,6 +25,7 @@ export default class ApiService {
 		result = result.replace(' ', '%20')
 		return url + result
 	}
+
 	registerUser({fullname, email, phone}) {
 		return this.httpService.post(
 			API_URL.REGISTER,
@@ -32,16 +33,31 @@ export default class ApiService {
 			this._defaultRequestHeader
 		)
 	}
+
 	getTotalUser() {
-		if (process.env.NODE_ENV !== 'production') {
-			return this.httpService.get(
-				API_URL.GET_TOTAL_USERS,
-				this._defaultRequestHeader
-			)
-		}
+		// if (process.env.NODE_ENV !== 'production') {
+		// 	return this.httpService.get(
+		// 		API_URL.GET_TOTAL_USERS,
+		// 		this._defaultRequestHeader
+		// 	)
+		// }
 		return this.httpService.get(
-			API_URL.GET_TOTAL_USERS_PRODUCTION,
+			API_URL.GET_TOTAL_USERS,
 			this._defaultRequestHeader
 		)
+	}
+
+	getFrame3Config () {
+		return this.httpService.get(
+			API_URL.FRAME_3_CFG,
+			this._defaultRequestHeader
+		);
+	}
+
+	getTickyBarConfig () {
+		return this.httpService.get(
+			API_URL.STICKY_BAR_CFG,
+			this._defaultRequestHeader
+		);
 	}
 }

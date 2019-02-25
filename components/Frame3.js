@@ -1,13 +1,11 @@
 import { PureComponent, Fragment } from 'react'
 
-import f3Config from '../static/frame3Config.json'
-
 export default class Frame3 extends PureComponent {
 	staticImagePath = '/static/img'
 	constructor(props) {
 		super(props);
 		this.state = {
-			activeItem: f3Config[0],
+			activeItem: props.config[0],
 			isHide: false,
 			autoPlay: false
 		}
@@ -20,10 +18,11 @@ export default class Frame3 extends PureComponent {
 	}
 
 	_nextSlide() {
+		const { config } = this.props
+
 		const {activeItem} = this.state
-		const nextIndex = f3Config.indexOf(activeItem) === (f3Config.length - 1) ? 0 : f3Config.indexOf(activeItem) + 1
-		this.handleChangeView(f3Config[nextIndex])
-		console.log('invoke nextSlide call interval from index', nextIndex)
+		const nextIndex = config.indexOf(activeItem) === (config.length - 1) ? 0 : config.indexOf(activeItem) + 1
+		this.handleChangeView(config[nextIndex])
 	}
 
 	componentDidMount() {
@@ -48,23 +47,24 @@ export default class Frame3 extends PureComponent {
 
 	render () {
 		const { activeItem, isHide } = this.state
+		const { config } = this.props
 		return(
 			<Fragment>
 				<div>
 					<div className='stage'>
-						<img className={`content-img ${isHide ? 'hide' : 'show'}`} src={`${this.staticImagePath}/${activeItem.content}`} />
+						<img className={`content-img ${isHide ? 'hide' : 'show'}`} src={`${activeItem.content}`} />
 					</div>
-					<div className={`stageBackgroud ${isHide ? 'hide' : 'show'}`} style={{backgroundImage: `url(${this.staticImagePath}/${activeItem.background})`}}>
+					<div className={`stageBackgroud ${isHide ? 'hide' : 'show'}`} style={{backgroundImage: `url(${activeItem.background})`}}>
 					</div>
 					<div className='navigation'>
 						<ul>
-							{f3Config.map(item => (
+							{config.map(item => (
 								<li key={item.id} className={`${item.id === activeItem.id ? 'active': ''}`}>
 									<a
 										onClick={() => this.handleChangeView(item)}
 										href='javascript:;'
 										className='btn-pager'
-										style={{backgroundImage: `url(${this.staticImagePath}/${item.button})`}}></a>
+										style={{backgroundImage: `url(${item.button})`}}></a>
 								</li>
 							))}
 						</ul>
