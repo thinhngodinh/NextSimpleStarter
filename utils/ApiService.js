@@ -26,34 +26,31 @@ export default class ApiService {
 		return url + result
 	}
 
-	registerUser({fullname, email, phone}) {
+	registerUser(isServer = false, {fullname, email, phone}) {
 		return this.httpService.post(
-			API_URL.REGISTER,
+			API_URL.REGISTER(isServer),
 			{fullname, email, phone},
 			this._defaultRequestHeader
 		)
 	}
 
-	getTotalUser() {
-		const REQUEST_URL = process.env.NODE_ENV !== 'production' ? API_URL.GET_TOTAL_USERS : API_URL.GET_TOTAL_USERS_PRODUCTION
+	getTotalUser(isServer = false) {
 		return this.httpService.get(
-			REQUEST_URL,
+			API_URL.GET_TOTAL_USERS(isServer),
 			this._defaultRequestHeader
 		)
 	}
 
-	getFrame3Config () {
-		const REQUEST_URL = process.env.NODE_ENV !== 'production' ? API_URL.FRAME_3_CFG : API_URL.FRAME_3_CFG_SSR
+	getFrame3Config (isServer = false) {
 		return this.httpService.get(
-			REQUEST_URL,
+			API_URL.FRAME_3_CFG(isServer),
 			this._defaultRequestHeader
 		);
 	}
 
-	getTickyBarConfig () {
-		const REQUEST_URL = process.env.NODE_ENV !== 'production' ? API_URL.STICKY_BAR_CFG : API_URL.STICKY_BAR_CFG_SSR
+	getTickyBarConfig (isServer = false) {
 		return this.httpService.get(
-			REQUEST_URL,
+			API_URL.STICKY_BAR_CFG(isServer),
 			this._defaultRequestHeader
 		);
 	}

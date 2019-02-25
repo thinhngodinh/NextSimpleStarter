@@ -25,13 +25,13 @@ class Index extends React.Component {
 			const httpService = new HttpService()
 			const apiService = new ApiService(httpService)
 
-			const totalUsersData = await apiService.getTotalUser()
+			const totalUsersData = await apiService.getTotalUser(isServer)
 			store.dispatch(appActions.setTotalUsers.invoke(totalUsersData.data))
 
-			const frame3Cfg = await apiService.getFrame3Config()
+			const frame3Cfg = await apiService.getFrame3Config(isServer)
 			store.dispatch(appActions.setFrame3Cfg.invoke(frame3Cfg))
 
-			const stickyCfg = await apiService.getTickyBarConfig()
+			const stickyCfg = await apiService.getTickyBarConfig(isServer)
 			store.dispatch(appActions.setTickyBarCfg.invoke(stickyCfg))
 			return { isServer }
 		}
