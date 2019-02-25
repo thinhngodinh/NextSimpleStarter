@@ -35,28 +35,25 @@ export default class ApiService {
 	}
 
 	getTotalUser() {
-		// if (process.env.NODE_ENV !== 'production') {
-		// 	return this.httpService.get(
-		// 		API_URL.GET_TOTAL_USERS,
-		// 		this._defaultRequestHeader
-		// 	)
-		// }
+		const REQUEST_URL = process.env.NODE_ENV !== 'production' ? API_URL.GET_TOTAL_USERS : API_URL.GET_TOTAL_USERS_PRODUCTION
 		return this.httpService.get(
-			API_URL.GET_TOTAL_USERS,
+			REQUEST_URL,
 			this._defaultRequestHeader
 		)
 	}
 
 	getFrame3Config () {
+		const REQUEST_URL = process.env.NODE_ENV !== 'production' ? API_URL.FRAME_3_CFG : API_URL.FRAME_3_CFG_SSR
 		return this.httpService.get(
-			API_URL.FRAME_3_CFG,
+			REQUEST_URL,
 			this._defaultRequestHeader
 		);
 	}
 
 	getTickyBarConfig () {
+		const REQUEST_URL = process.env.NODE_ENV !== 'production' ? API_URL.STICKY_BAR_CFG : API_URL.STICKY_BAR_CFG_SSR
 		return this.httpService.get(
-			API_URL.STICKY_BAR_CFG,
+			REQUEST_URL,
 			this._defaultRequestHeader
 		);
 	}
