@@ -20,7 +20,7 @@ workbox.precaching.precacheAndRoute(
 		m =>
 			!m.url.startsWith('bundles/') &&
 			!m.url.startsWith('static/commons') &&
-			!m.url.startsWith('upload') &&
+			!m.url.startsWith('uploads') &&
 			m.url !== 'build-manifest.json'
 	),
 	{}
