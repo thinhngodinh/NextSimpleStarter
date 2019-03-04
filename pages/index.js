@@ -32,12 +32,12 @@ class Index extends React.Component {
 			} catch (e) {
 				store.dispatch(appActions.setTotalUsers.invoke(0))
 			}
-			// try {
-			// 	const frame3Cfg = await apiService.getFrame3Config(isServer)
-			// 	store.dispatch(appActions.setFrame3Cfg.invoke(frame3Cfg))
-			// } catch (e) {
-			// 	console.error(e)
-			// }
+			try {
+				const frame3Cfg = await apiService.getFrame3Config(isServer)
+				store.dispatch(appActions.setFrame3Cfg.invoke(frame3Cfg))
+			} catch (e) {
+				console.error(e)
+			}
 
 			try {
 				const stickyCfg = await apiService.getTickyBarConfig(isServer)
