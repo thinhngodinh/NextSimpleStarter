@@ -4,7 +4,7 @@ export default class Frame6 extends PureComponent {
 	render () {
 		return(
 			<Fragment>
-				<div>Frame 6</div>
+				<div>News Feed</div>
 			</Fragment>
 		)
 	}

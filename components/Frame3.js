@@ -12,7 +12,7 @@ export default class Frame3 extends PureComponent {
 		this.interval = null;
 	}
 
-	startAutoPlay (duration = 4000) {
+	startAutoPlay (duration = 6000) {
 		this.setState({ autoPlay: true })
 		this.interval = setInterval(() => this._nextSlide(), duration)
 	}

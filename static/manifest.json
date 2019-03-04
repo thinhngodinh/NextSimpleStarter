@@ -1,6 +1,6 @@
 {
-  "name": "NextSimpleStarter",
-  "short_name": "Next PWA",
+  "name": "Tân Thiên Long",
+  "short_name": "VNG - TTLM",
   "icons": [
     {
       "src": "img/apple-touch-icon-120x120.png",
@@ -30,6 +30,6 @@
   ],
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#673ab7",
-  "background_color": "#EEE"
+  "theme_color": "#860006",
+  "background_color": "#860006"
 }

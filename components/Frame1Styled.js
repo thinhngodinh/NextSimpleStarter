@@ -32,12 +32,53 @@ const Styled = {
 		width: 996px;
 		height: 727px;
 		position: relative;
+		@media (max-width: 480px) {
+			height: 1240px;
+			.framefooter {
+				top: 670px !important;
+				height: 573px !important;
+				background-size: 414px;
+				.totaluser-gift {
+					display: none;
+				}
+				.btn-register {
+					width: 100%;
+					top: 460px !important;
+					left: 0 !important;
+					text-align: center;
+				}
+				.user-counter{
+					width: 100%;
+					font-size: 2rem;
+					font-weight: 600;
+					color: #b91a18 !important;
+					top: 539px !important;
+					right: 0 !important;
+					text-align: center !important;
+				}
+				.mobile-footer-title {
+					width: 100%;
+					text-align: center;
+					display: block !important;
+					padding-top: 10px;
+					> img {
+						width: 100%;
+					}
+				}
+			}
+		}
 		.framefooter {
 			position: absolute;
 			width: 100%;
 			height: 142px;
 			top: 520px;
 			left: 0;
+			@media (min-width: 481px) {
+				background: none !important;
+			}
+			.mobile-footer-title {
+				display: none;
+			}
 			.user-counter{
 				display: block;
 				position: absolute;
@@ -46,6 +87,11 @@ const Styled = {
 				top: 107px;
 				right: 872px;
 				text-align: right;
+				@media (min-width: 481px) {
+					.label {
+						display: none;
+					}
+				}
 			}
 			.totaluser-gift {
 				position: absolute;
@@ -73,7 +119,11 @@ const Styled = {
 		animation: 0.5s ${BlurEffect} ease-out;
 		position: absolute;
 		top: 161px;
-    left: 219.7px;
+		left: 219.7px;
+		@media (max-width: 480px) {
+			display: none;
+		}
+
 	`,
 };
 

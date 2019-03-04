@@ -4,7 +4,7 @@ export default class Frame5 extends PureComponent {
 	render () {
 		return(
 			<Fragment>
-				<div>Frame 5</div>
+				<div className='mobile-msg'>ĐANG CẬP NHẬP</div>
 			</Fragment>
 		)
 	}

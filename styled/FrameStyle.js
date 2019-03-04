@@ -34,6 +34,11 @@ export const StyledFrame = styled.div`
 	display: flex;
 	justify-content: center;
 	position: relative;
+	@media (max-width: 480px) {
+		.qr-scan {
+			display: none;
+		}
+	}
 	.qr-scan{
 		position: fixed;
     right: 0;
@@ -74,12 +79,18 @@ export const NextPageButton = styled.a`
 	bottom: 10px;
 	left: 50%;
 	transform: translate(-50%, 0);
+	@media (max-width: 480px) {
+		display: none;
+	}
 `
 
 export const StyledFrame1 = styled(StyledFrame)`
 	align-items: flex-start;
 	background: url(/static/img/homeBg_hi_res_.jpg) no-repeat center top;
 	background-size: cover;
+	@media (max-width: 480px) {
+    background: url(/static/img/f1_mobile_bg.jpg) no-repeat center top;
+  }
 `;
 
 export const StyledFrame2 = styled(StyledFrame)`
@@ -88,12 +99,35 @@ export const StyledFrame2 = styled(StyledFrame)`
 `;
 
 export const StyledFrame3 = styled(StyledFrame)`
-	min-height: 720px;
 	overflow: hidden;
 	> div {
 		width: 960px;
 		display: flex;
     flex-direction: column;
+	}
+	@media (min-width: 481px) {
+		min-height: 720px;
+		.content-img {
+			width: 29%;
+			margin-left: 100px;
+			margin-top: 50px;
+		}
+	}
+	@media (max-width: 480px) {
+		min-height: 500px;
+		height: 500px;
+		.stageBackgroud {
+			background-size: 1000px !important;
+			background-position: top center;
+		}
+		.stage .content-img {
+				width: 33% !important;
+				margin-left: 88px !important;
+				margin-top: 53px !important;
+		}
+		.navigation {
+			transform: scale(0.7) translate(0, -50%);
+		}
 	}
 	.stageBackgroud {
 		position: absolute;
@@ -160,6 +194,9 @@ export const StyledFrame4 = styled(StyledFrame)`
 	min-height: 720px;
 	background: url(/static/img/frame4_bg.jpg) no-repeat center top;
 	background-size: cover;
+	@media (max-width: 480px) {
+		display: none;
+	}
 	>div {
 		position: relative;
 		width: 960px;
@@ -217,7 +254,28 @@ export const StyledFrame4 = styled(StyledFrame)`
 `;
 
 export const StyledFrame5 = styled(StyledFrame)`
+	@media (min-width: 481px) {
+		min-height: 726px;
+		background: url(/static/img/frame5_bg.jpg) no-repeat center top;
+		background-size: cover;
+		.mobile-msg {
+			dislay: none;
+		}
+	}
+	@media (max-width: 480px) {
+		background: url(/static/img/f5_mobile.jpg) no-repeat center top;
+		background-size: 450px;
+		min-height: 600px;
+		.mobile-msg {
+			align-items: center;
+			justify-content: center;
+			display: flex;
+			font-size: 2rem;
+			color: #00000070;
+		}
+	}
+`;
+
+export const StyledFrame6 = styled(StyledFrame)`
 	min-height: 726px;
-	background: url(/static/img/frame5_bg.jpg) no-repeat center top;
-	background-size: cover;
 `;

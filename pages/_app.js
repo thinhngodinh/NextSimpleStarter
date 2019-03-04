@@ -6,6 +6,8 @@ import withRedux from 'next-redux-wrapper'
 import withReduxSaga from 'next-redux-saga'
 
 import initStore from '../utils/store'
+import GlobalStyle from '../styled/GlobalStyle'
+
 
 /* debug to log how the store is being used */
 
@@ -29,6 +31,7 @@ class MyApp extends App {
 				<Provider store={store}>
 					<Component {...pageProps} />
 				</Provider>
+				<GlobalStyle />
 			</Container>
 		)
 	}

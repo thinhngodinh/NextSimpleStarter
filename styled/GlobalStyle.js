@@ -14,8 +14,11 @@ const GlobalStyle = createGlobalStyle`
 		font-size: 10px;
 		font-family: 'arial'
 	}
+	@media (max-width: 480px) {
+		body{padding-top: 30px;}
+	}
   body {
-		margin: 0 auto;
+		margin: 0 auto !important;
 		max-width: 1400px;
 		background: url(/static/img/page_bg.jpg) no-repeat center top;
 		background-size: cover;

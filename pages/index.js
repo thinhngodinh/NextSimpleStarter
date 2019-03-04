@@ -6,20 +6,22 @@ import HttpService from '../utils/HttpService'
 import ApiService from '../utils/ApiService'
 
 import StyleRegisterBox from '../styled/StyledModal'
-import GlobalStyle from '../styled/GlobalStyle'
-import { NextPageButton, StyledFrame1, StyledFrame3, StyledFrame4 } from '../styled/FrameStyle'
+import { NextPageButton, StyledFrame1, StyledFrame3, StyledFrame4, StyledFrame5, StyledFrame6 } from '../styled/FrameStyle'
 
 import Footer from '../components/Footer'
+import MobileHeader from '../components/MobileHeader'
 
-const Frame1 = dynamic(() => import('../components/Frame1'), {loading: () => <p>loading...</p>})
-const Frame3 = dynamic(() => import('../components/Frame3'), {loading: () => <p>loading...</p>})
-const Frame4 = dynamic(() => import('../components/Frame4'), {loading: () => <p>loading...</p>})
+const Frame1 = dynamic(() => import('../components/Frame1'), {loading: () => <p>loading Frame 1...</p>})
+const Frame3 = dynamic(() => import('../components/Frame3'), {loading: () => <p>loading Frame 3...</p>})
+const Frame4 = dynamic(() => import('../components/Frame4'), {loading: () => <p>loading Frame 4...</p>})
+const Frame5 = dynamic(() => import('../components/Frame5'), {loading: () => <p>loading Frame 5...</p>})
+const Frame6 = dynamic(() => import('../components/Frame6'), {loading: () => <p>loading Frame 6...</p>})
 const RegisterForm = dynamic(() => import('../components/RegisterForm.js'), {loading: () => <p>loading...</p>})
 
 import appActions from '../actions/appActions'
 
 class Index extends React.Component {
-	static async getInitialProps({ store, isServer }) {
+	static async getInitialProps({ store, isServer, req, pathname, query }) {
 		// dispatch action to saga for initial data
 		if(isServer) {
 			const httpService = new HttpService()
@@ -30,12 +32,12 @@ class Index extends React.Component {
 			} catch (e) {
 				store.dispatch(appActions.setTotalUsers.invoke(0))
 			}
-			try {
-				const frame3Cfg = await apiService.getFrame3Config(isServer)
-				store.dispatch(appActions.setFrame3Cfg.invoke(frame3Cfg))
-			} catch (e) {
-				console.error(e)
-			}
+			// try {
+			// 	const frame3Cfg = await apiService.getFrame3Config(isServer)
+			// 	store.dispatch(appActions.setFrame3Cfg.invoke(frame3Cfg))
+			// } catch (e) {
+			// 	console.error(e)
+			// }
 
 			try {
 				const stickyCfg = await apiService.getTickyBarConfig(isServer)
@@ -43,8 +45,8 @@ class Index extends React.Component {
 			} catch (e) {
 				console.error(e)
 			}
-			return { isServer }
 		}
+		return { isServer, headers: req.headers, query }
 
 	}
 
@@ -77,6 +79,7 @@ class Index extends React.Component {
 		const { registerBox } = this.state
 		return (
 			<React.Fragment>
+				<MobileHeader stickyCfg={appState.stickyCfg} />
 				<StyledFrame1>
 					{Frame1 && <Frame1
 												stickyCfg={appState.stickyCfg}
@@ -96,7 +99,22 @@ class Index extends React.Component {
 
 				<StyledFrame4>
 					{Frame4 && <Frame4 />}
+					<NextPageButton href='javascript:;' onClick={this.handleNextFrame}>
+						<img src='/static/img/next_frame_button.png' />
+					</NextPageButton>
 				</StyledFrame4>
+
+				<StyledFrame5>
+					{Frame5 && <Frame5 />}
+					<NextPageButton href='javascript:;' onClick={this.handleNextFrame}>
+						<img src='/static/img/next_frame_button.png' />
+					</NextPageButton>
+				</StyledFrame5>
+
+				{/* <StyledFrame6>
+					{Frame6 && <Frame6 />}
+				</StyledFrame6> */}
+
 				<Footer />
 				{registerBox &&
 					<StyleRegisterBox>
@@ -104,7 +122,6 @@ class Index extends React.Component {
 						<RegisterForm toggleModal={this.toggleModal} />
 					</StyleRegisterBox>
 				}
-				<GlobalStyle />
 			</React.Fragment>
 		)
 	}
