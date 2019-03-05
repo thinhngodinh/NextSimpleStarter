@@ -57,10 +57,10 @@ export default class Frame1 extends PureComponent {
 						{totalUsers < 50000 && <img className='totaluser-gift' src={`${this.staticImgPath}/moc1-3.png`} />}
 						{totalUsers >= 50000 && totalUsers < 100000 && <img className='totaluser-gift' src={`${this.staticImgPath}/moc2-3.png`} />}
 						{totalUsers >= 100000 && <img className='totaluser-gift' src={`${this.staticImgPath}/moc3-3.png`} />}
-						<div className='qr-scan'>
+						{/* <div className='qr-scan'>
 							<img src={`${this.staticImgPath}/qrscan.png`} />
 							{stickyCfg && stickyCfg.map(stickyItem => <a key={stickyItem.id} href={stickyItem.link} className={stickyItem.type}></a>)}
-						</div>
+						</div> */}
 					</div>
 				</Styled.FrameContent>
 
