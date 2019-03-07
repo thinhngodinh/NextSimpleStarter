@@ -2,6 +2,7 @@ import 'isomorphic-fetch'
 import React from 'react'
 import dynamic from 'next/dynamic'
 import { connect } from 'react-redux'
+import NoSSR from 'react-no-ssr'
 import HttpService from '../utils/HttpService'
 import ApiService from '../utils/ApiService'
 
@@ -35,6 +36,13 @@ class Index extends React.Component {
 			try {
 				const frame3Cfg = await apiService.getFrame3Config(isServer)
 				store.dispatch(appActions.setFrame3Cfg.invoke(frame3Cfg))
+			} catch (e) {
+				console.error(e)
+			}
+
+			try {
+				const frame5Cfg = await apiService.getFrame5Config(isServer)
+				store.dispatch(appActions.setFrame5Cfg.invoke(frame5Cfg))
 			} catch (e) {
 				console.error(e)
 			}
@@ -79,7 +87,9 @@ class Index extends React.Component {
 		const { registerBox } = this.state
 		return (
 			<React.Fragment>
-				<MobileHeader stickyCfg={appState.stickyCfg} />
+				<NoSSR>
+					<MobileHeader stickyCfg={appState.stickyCfg} />
+				</NoSSR>
 				<StyledFrame1>
 					{Frame1 && <Frame1
 												stickyCfg={appState.stickyCfg}
@@ -105,10 +115,10 @@ class Index extends React.Component {
 				</StyledFrame4>
 
 				<StyledFrame5>
-					{Frame5 && <Frame5 />}
-					<NextPageButton href='javascript:;' onClick={this.handleNextFrame}>
+					{Frame5 && <Frame5 config={appState.frame5Cfg} />}
+					{/* <NextPageButton href='javascript:;' onClick={this.handleNextFrame}>
 						<img src='/static/img/next_frame_button.png' />
-					</NextPageButton>
+					</NextPageButton> */}
 				</StyledFrame5>
 
 				{/* <StyledFrame6>

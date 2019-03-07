@@ -55,6 +55,8 @@ const GlobalStyle = createGlobalStyle`
 	{
 		outline:0;
 	}
+	@import "/static/libs/slick/slick.css";
+	@import "/static/libs/slick/slick-theme.css";
 `
 
 export default GlobalStyle

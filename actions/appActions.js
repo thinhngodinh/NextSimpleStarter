@@ -35,6 +35,10 @@ const appActions = {
 		action: '_SET_FRAME_3_CONFIG_',
 		invoke: (f3Cfg) => ({ type: appActions.setFrame3Cfg.action, f3Cfg })
 	},
+	setFrame5Cfg: {
+		action: '_SET_FRAME_5_CONFIG_',
+		invoke: (f5Cfg) => ({ type: appActions.setFrame5Cfg.action, f5Cfg })
+	},
 	setTickyBarCfg: {
 		action: '_SET_TICKY_BAR_CFG_',
 		invoke: (tickyCfg) => ({ type: appActions.setTickyBarCfg.action, tickyCfg })

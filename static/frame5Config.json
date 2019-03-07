@@ -1,0 +1,98 @@
+{
+	"videoPlayList": [
+		{
+			"thumbnail": "/static/img/videoPlaceHolder.gif",
+			"yid": "JiSEX8-vEMY"
+		},
+		{
+			"thumbnail": "/static/img/videoPlaceHolder.gif",
+			"yid": "45RvlMmmz4M"
+		},
+		{
+			"thumbnail": "/static/img/videoPlaceHolder.gif",
+			"yid": "f6fuUzYKpZw"
+		},
+		{
+			"thumbnail": "/static/img/videoPlaceHolder.gif",
+			"yid": "2grx9fou-zE"
+		},
+		{
+			"thumbnail": "/static/img/videoPlaceHolder.gif",
+			"yid": "AM7ooqewDrw"
+		},
+		{
+			"thumbnail": "/static/img/videoPlaceHolder.gif",
+			"yid": "Sy1jdXxZBqQ"
+		},
+		{
+			"thumbnail": "/static/img/videoPlaceHolder.gif",
+			"yid": "GcKLLDyoAvA"
+		},
+		{
+			"thumbnail": "/static/img/videoPlaceHolder.gif",
+			"yid": "bZ9QcF4gAkw"
+		},
+		{
+			"thumbnail": "/static/img/videoPlaceHolder.gif",
+			"yid": "QCJZ5q4KbEQ"
+		},
+		{
+			"thumbnail": "/static/img/videoPlaceHolder.gif",
+			"yid": "hIs3D_fmkP4"
+		},
+		{
+			"thumbnail": "/static/img/videoPlaceHolder.gif",
+			"yid": "W9kceaQ0bFc"
+		},
+		{
+			"thumbnail": "/static/img/videoPlaceHolder.gif",
+			"yid": "nSdyXK0KYX4"
+		},
+		{
+			"thumbnail": "/static/img/videoPlaceHolder.gif",
+			"yid": "vTSS7DKkb3c"
+		}
+	],
+	"slider": [
+		{
+			"video": {
+					"thumbnail": "/static/img/videoPlaceHolder.gif",
+					"yid": "JiSEX8-vEMY"
+			},
+			"landscape": "/static/img/pic-website1.jpg",
+			"square": "/static/img/fram5_photo2fram5_photofram5_photo0264_fram5_photo9fram5_photo12fram5_photo78424636fram5_photo_4268fram5_photo847fram5_photo0714716160_n.jpg"
+		},
+		{
+			"video": {
+				"thumbnail": "/static/img/videoPlaceHolder.gif",
+				"yid": "45RvlMmmz4M"
+			},
+			"landscape": "/static/img/pic-website2.jpg",
+			"square": "/static/img/fram5_photo24fram5_photo8973_fram5_photo9668fram5_photo767423700_2fram5_photo7811fram5_photo906823fram5_photo202fram5_photo6_n.jpg"
+		},
+		{
+			"video": {
+				"thumbnail": "/static/img/videoPlaceHolder.gif",
+				"yid": "f6fuUzYKpZw"
+			},
+			"landscape": "/static/img/pic-website3.jpg",
+			"square": "/static/img/fram5_photo207fram5_photo9fram5_photo8_fram5_photo94109434348000_47190fram5_photo63310618fram5_photo4208_n.jpg"
+		},
+		{
+			"video": {
+				"thumbnail": "/static/img/videoPlaceHolder.gif",
+				"yid": "GcKLLDyoAvA"
+			},
+			"landscape": "/static/img/pic-website4.jpg",
+			"square": "/static/img/fram5_photo2093928_fram5_photo9fram5_photo627627fram5_photo29fram5_photo14_22fram5_photo7836381629841408_n.jpg"
+		},
+		{
+			"video": {
+				"thumbnail": "/static/img/videoPlaceHolder.gif",
+				"yid": "vTSS7DKkb3c"
+			},
+			"landscape": "/static/img/pic-website5.jpg",
+			"square": "/static/img/fram5_photo2269946_fram5_photo96191694139774_4fram5_photo76fram5_photo1fram5_photo342989262848_n.jpg"
+		}
+	]
+}

@@ -52,6 +52,13 @@ export default class ApiService {
 		return this.httpService.get(
 			API_URL.STICKY_BAR_CFG(isServer),
 			this._defaultRequestHeader
-		);
+		)
+	}
+
+	getFrame5Config (isServer = false) {
+		return this.httpService.get(
+			API_URL.FRAME_5_CFG(isServer),
+			this._defaultRequestHeader
+		)
 	}
 }

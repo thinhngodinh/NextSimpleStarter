@@ -3,7 +3,6 @@ import styled, {keyframes} from 'styled-components'
 import { pulse, fadeOutLeft, flipInY } from 'react-animations'
 const pulseAnimation = keyframes`${pulse}`
 const fadeOutAnimation = keyframes`${fadeOutLeft}`
-const flipInYAnimation = keyframes`${flipInY}`
 const blurEffectInAnimation = keyframes`
 	0% {
 		opacity: 0;
@@ -254,6 +253,91 @@ export const StyledFrame4 = styled(StyledFrame)`
 `;
 
 export const StyledFrame5 = styled(StyledFrame)`
+	> div {
+		width: 960px;
+		position: relative;
+		.absolute-container {
+			position: absolute;
+			width: 413px;
+			height: 377px;
+			top: 170px;
+			right: 158px;
+			.slick-arrow {
+				top: 29%;
+				width: 35px;
+				height: 35px;
+				&:before {
+					display: none;
+				}
+				&.slick-next {
+					right: -35px;
+				}
+				&.slick-prev {
+					left: -35px;
+				}
+			}
+			.slide-row {
+				display: flex;
+				justify-content: space-between;
+				>a {display: inline-block;}
+			}
+			.slide-row:first-child {
+				margin-bottom: 5px;
+			}
+			.photo-landscape {
+				img {
+					width: 100%;
+				}
+			}
+			.youtube-link {
+				img {
+					width: 244px;
+					height: 163px;
+				}
+			}
+			.photo-square {
+				img {
+					height: 163px;
+				}
+			}
+		}
+	}
+	.video-playlist {
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		background: #000000c2;
+		z-index: 1;
+		flex-direction: column;
+		.backdrop {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			cursor: pointer;
+		}
+		.closeButton {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			width: 32px;
+			height: 32px;
+			background: url(/static/img/closebtn.png) center top;
+			&:hover {
+				background-position: center bottom;
+			}
+		}
+		.playlist {
+			.youtube-item img {
+				height: 100px;
+			}
+		}
+	}
 	@media (min-width: 481px) {
 		min-height: 726px;
 		background: url(/static/img/frame5_bg.jpg) no-repeat center top;
@@ -266,6 +350,10 @@ export const StyledFrame5 = styled(StyledFrame)`
 		background: url(/static/img/f5_mobile.jpg) no-repeat center top;
 		background-size: 450px;
 		min-height: 600px;
+		.absolute-container {
+			position: initial !important;
+			transform: scale(0.84) translate(0, 50%);
+		}
 		.mobile-msg {
 			align-items: center;
 			justify-content: center;

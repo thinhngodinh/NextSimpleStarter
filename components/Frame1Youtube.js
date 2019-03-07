@@ -1,40 +1,83 @@
 import React from 'react';
 import YouTube from 'react-youtube';
+import Slider from "react-slick";
+
+const PLAYERSTATE = {
+	BUFFERING: 3,
+	CUED: 5,
+	ENDED: 0,
+	PAUSED: 2,
+	PLAYING: 1,
+	UNSTARTED: -1
+}
 
 export default class YoutubePlayer extends React.PureComponent {
+	constructor(props) {
+		super(props)
+		this.state = {
+			yId: props.yId
+		}
+		this.handleChangeVideo = this.handleChangeVideo.bind(this)
+	}
 	static defaultProps = {
 		yId: '6Dakd7EIgBE',
 		closeProp: null,
 		w: '640',
 		h: '390'
 	}
+
+	handleChangeVideo(newYId) {
+		this.setState({ yId: newYId })
+	}
+
 	render() {
-		const {yId, closeProp, w, h} = this.props
-    const opts = {
-      height: h,
+		const { closeProp, w, h, playlist } = this.props
+
+		const opts = {
+			height: h,
 			width: w,
 
-      playerVars: { // https://developers.google.com/youtube/player_parameters
+			playerVars: { // https://developers.google.com/youtube/player_parameters
 				autoplay: 1,
-				controls: 0,
-      }
-    };
+				controls: 1,
+			}
+		};
 
-    return (
-			<div>
+		const settings = {
+			slidesToShow: Math.floor (w / 180),
+			centerMode: true,
+			slidesToScroll: 1,
+			infinite: true,
+		}
+
+		return (
+			<React.Fragment>
 				<YouTube
-					videoId={this.props.yId}
+					videoId={this.state.yId}
 					opts={opts}
 					onReady={this._onReady}
 				/>
-				<div className='front_cover'></div>
+				{playlist &&
+					<div className='playlist' style={{ width: w, height: 100, marginTop: 15 }}>
+						<Slider {...settings}>
+							{playlist.map((videoItem, index) =>
+								<div key={index}>
+									<a href='javascript:;' className='youtube-item' onClick={() => this.handleChangeVideo(videoItem.yid)}>
+										<img src={videoItem.thumbnail} />
+									</a>
+								</div>
+							)}
+						</Slider>
+					</div>
+				}
+				<div className='backdrop' onClick={closeProp}></div>
 				{closeProp && <a className='closeButton' href='javascript:;' onClick={closeProp}></a>}
-			</div>
-    );
-  }
+			</React.Fragment>
+		);
+	}
 
-  _onReady(event) {
-    // access to player in all event handlers via event.target
-    // event.target.pauseVideo();
-  }
+	_onReady(event) {
+		// access to player in all event handlers via event.target
+		// event.target.pauseVideo();
+	}
 }
