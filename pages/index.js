@@ -40,12 +40,12 @@ class Index extends React.Component {
 				console.error(e)
 			}
 
-			try {
-				const frame5Cfg = await apiService.getFrame5Config(isServer)
-				store.dispatch(appActions.setFrame5Cfg.invoke(frame5Cfg))
-			} catch (e) {
-				console.error(e)
-			}
+			// try {
+			// 	const frame5Cfg = await apiService.getFrame5Config(isServer)
+			// 	store.dispatch(appActions.setFrame5Cfg.invoke(frame5Cfg))
+			// } catch (e) {
+			// 	console.error(e)
+			// }
 
 			try {
 				const stickyCfg = await apiService.getTickyBarConfig(isServer)
