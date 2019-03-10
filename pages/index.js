@@ -11,6 +11,8 @@ import { NextPageButton, StyledFrame1, StyledFrame3, StyledFrame4, StyledFrame5,
 
 import Footer from '../components/Footer'
 import MobileHeader from '../components/MobileHeader'
+import FloatingDownload from '../components/FloatingDownload'
+import NewsList from '../components/NewsList'
 
 const Frame1 = dynamic(() => import('../components/Frame1'), {loading: () => <p>loading Frame 1...</p>})
 const Frame3 = dynamic(() => import('../components/Frame3'), {loading: () => <p>loading Frame 3...</p>})
@@ -18,6 +20,7 @@ const Frame4 = dynamic(() => import('../components/Frame4'), {loading: () => <p>
 const Frame5 = dynamic(() => import('../components/Frame5'), {loading: () => <p>loading Frame 5...</p>})
 const Frame6 = dynamic(() => import('../components/Frame6'), {loading: () => <p>loading Frame 6...</p>})
 const RegisterForm = dynamic(() => import('../components/RegisterForm.js'), {loading: () => <p>loading...</p>})
+
 
 import appActions from '../actions/appActions'
 
@@ -33,12 +36,13 @@ class Index extends React.Component {
 			} catch (e) {
 				store.dispatch(appActions.setTotalUsers.invoke(0))
 			}
-			try {
-				const frame3Cfg = await apiService.getFrame3Config(isServer)
-				store.dispatch(appActions.setFrame3Cfg.invoke(frame3Cfg))
-			} catch (e) {
-				console.error(e)
-			}
+
+			// try {
+			// 	const frame3Cfg = await apiService.getFrame3Config(isServer)
+			// 	store.dispatch(appActions.setFrame3Cfg.invoke(frame3Cfg))
+			// } catch (e) {
+			// 	console.error(e)
+			// }
 
 			// try {
 			// 	const frame5Cfg = await apiService.getFrame5Config(isServer)
@@ -53,8 +57,24 @@ class Index extends React.Component {
 			} catch (e) {
 				console.error(e)
 			}
+
+			try {
+				const slides = await apiService.getFrame6Sliders(isServer)
+				store.dispatch(appActions.setFrame6Sliders.invoke(slides))
+			}
+			catch (e) {
+				console.error(e)
+			}
+
+			try {
+				const posts = await apiService.getPostList(isServer, {_start: 0, _limit: 6})
+				store.dispatch(appActions.setPostList.invoke(posts))
+			}
+			catch (e) {
+				console.log(e)
+			}
 		}
-		return { isServer, headers: req.headers, query }
+		return { isServer, query, pageShadow: true }
 
 	}
 
@@ -90,9 +110,9 @@ class Index extends React.Component {
 				<NoSSR>
 					<MobileHeader stickyCfg={appState.stickyCfg} />
 				</NoSSR>
+				<FloatingDownload stickyCfg={appState.stickyCfg} />
 				<StyledFrame1>
 					{Frame1 && <Frame1
-												stickyCfg={appState.stickyCfg}
 												totalUsers={totalUsers}
 												toggleModal={this.toggleModal} />}
 					<NextPageButton href='javascript:;' onClick={this.handleNextFrame}>
@@ -116,14 +136,18 @@ class Index extends React.Component {
 
 				<StyledFrame5>
 					{Frame5 && <Frame5 config={appState.frame5Cfg} />}
-					{/* <NextPageButton href='javascript:;' onClick={this.handleNextFrame}>
+					<NextPageButton href='javascript:;' onClick={this.handleNextFrame}>
 						<img src='/static/img/next_frame_button.png' />
-					</NextPageButton> */}
+					</NextPageButton>
 				</StyledFrame5>
 
-				{/* <StyledFrame6>
-					{Frame6 && <Frame6 />}
-				</StyledFrame6> */}
+				<StyledFrame6>
+					{Frame6 && <Frame6
+						slides={appState.slides}
+						stickyCfg={appState.stickyCfg}>
+						{appState.posts && <NewsList postList={appState.posts} /> }
+					</Frame6>}
+				</StyledFrame6>
 
 				<Footer />
 				{registerBox &&

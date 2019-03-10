@@ -61,4 +61,27 @@ export default class ApiService {
 			this._defaultRequestHeader
 		)
 	}
+
+	getFrame6Sliders (isServer = false) {
+		return this.httpService.get(
+			API_URL.FRAME_6_SIDER(isServer),
+			this._defaultRequestHeader
+		)
+	}
+
+	getPostList (isServer = false, config) {
+		let requestUrl = API_URL.POST_LIST(isServer)
+		requestUrl = this.paraGen(config, requestUrl)
+		return this.httpService.get(
+			requestUrl,
+			this._defaultRequestHeader
+		)
+	}
+
+	getPostDetail (isServer = false, postUrl) {
+		return this.httpService.get(
+			API_URL.POST_DETAIL(isServer) + postUrl,
+			this._defaultRequestHeader
+		)
+	}
 }

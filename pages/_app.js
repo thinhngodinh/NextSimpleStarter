@@ -18,7 +18,10 @@ class MyApp extends App {
 		if (Component.getInitialProps) {
 			pageProps = await Component.getInitialProps(ctx)
 		}
-		return { pageProps }
+		if (!pageProps.pageShadow) {
+			pageProps.pageShadow = false
+		}
+			return { pageProps }
 	}
 
 	render() {
@@ -31,7 +34,7 @@ class MyApp extends App {
 				<Provider store={store}>
 					<Component {...pageProps} />
 				</Provider>
-				<GlobalStyle />
+				<GlobalStyle pageShadow={pageProps.pageShadow} />
 			</Container>
 		)
 	}

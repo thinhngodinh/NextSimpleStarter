@@ -6,7 +6,9 @@ import f5Config from '../static/frame5Config.json'
 const initAppState = () => ({
 	frame3Cfg: f3Config,
 	frame5Cfg: f5Config,
-	stickyCfg: null
+	stickyCfg: [],
+	posts: [],
+	slides: []
 });
 
 const ACTION_HANDLERS = {
@@ -33,6 +35,14 @@ const ACTION_HANDLERS = {
 		...state,
 		stickyCfg: payload.tickyCfg
 	}),
+	[appAction.setFrame6Sliders.action]: (state, payload) => ({
+		...state,
+		slides: payload.slides
+	}),
+	[appAction.setPostList.action]: (state, payload) => ({
+		...state,
+		posts: payload.posts
+	})
 }
 
 const appReducer = (state = initAppState(), action) => {

@@ -31,6 +31,9 @@ export default class Frame5 extends PureComponent {
 		const {config} = this.props
 		const {activeYid, w, h} = this.state
 		const settings = {
+			autoplay: true,
+			autoplaySpeed: 5000,
+			dot: true,
 			infinite: true,
 			speed: 500,
 			slidesToShow: 1,
@@ -39,6 +42,9 @@ export default class Frame5 extends PureComponent {
 		return (
 			<Fragment>
 				<div className='custom-caroulse'>
+					<div className='frame-title'>
+						<img src='/static/img/title_he_thong_tinh_nang.png' />
+					</div>
 					<div className='absolute-container'>
 						<Slider {...settings}>
 							{config.slider && config.slider.map((slideItem, index) =>

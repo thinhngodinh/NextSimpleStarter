@@ -1,5 +1,6 @@
 const routes = require('next-routes')
 
 module.exports = routes()
-	.add({ name: 'postDetail', pattern: '/post/:postTitle', page: 'postDetail' })
-	.add({ name: 'posts', pattern: '/posts', page: 'postList' })
+	.add({ name: 'index', pattern: '/', page: 'index' })
+	.add({ name: 'postDetail', pattern: '/:category/:postTitle', page: 'postDetail' })
+	.add({ name: 'posts', pattern: '/:category', page: 'postList' })

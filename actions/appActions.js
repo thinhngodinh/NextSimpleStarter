@@ -43,6 +43,14 @@ const appActions = {
 		action: '_SET_TICKY_BAR_CFG_',
 		invoke: (tickyCfg) => ({ type: appActions.setTickyBarCfg.action, tickyCfg })
 	},
+	setFrame6Sliders : {
+		action: '_SET_FRAME_6_SLIDER_CFG',
+		invoke: slides => ({ type: appActions.setFrame6Sliders.action, slides })
+	},
+	setPostList: {
+		action: 'GET_POST_LIST',
+		invoke: posts => ({ type: appActions.setPostList.action, posts })
+	},
 }
 
 export default appActions;

@@ -63,7 +63,7 @@ export default class YoutubePlayer extends React.PureComponent {
 							{playlist.map((videoItem, index) =>
 								<div key={index}>
 									<a href='javascript:;' className='youtube-item' onClick={() => this.handleChangeVideo(videoItem.yid)}>
-										<img src={videoItem.thumbnail} />
+										<img src={videoItem.thumbnail.length ? videoItem.thumbnail : '/static/img/videoPlaceHolder.gif'} />
 									</a>
 								</div>
 							)}

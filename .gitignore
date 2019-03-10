@@ -1,6 +1,5 @@
 node_modules/
 static/sw.js
-static/sw-fe.js
 static__
 .next
 *-error.log

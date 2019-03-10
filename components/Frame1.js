@@ -16,15 +16,17 @@ export default class Frame1 extends PureComponent {
 	}
 
 	componentDidMount() {
-		setTimeout(() => {this.setState({
-			showTitle: true
-		}, () => this.setState({showPlayButton: true}))}, 500)
+		setTimeout(() => {
+			this.setState({
+				showTitle: true
+			}, () => this.setState({ showPlayButton: true }))
+		}, 500)
 	}
 
 	_getMobileF1bg(totalUsers) {
 		if (totalUsers < 50000) {
 			return '/static/img/f1_1_bg_20k.jpg'
-		} else if(totalUsers >= 50000 && totalUsers < 100000) {
+		} else if (totalUsers >= 50000 && totalUsers < 100000) {
 			return '/static/img/f1_1_bg_50k.jpg'
 		} else if (totalUsers >= 100000) {
 			return '/static/img/f1_1_bg_100k.jpg'
@@ -32,14 +34,14 @@ export default class Frame1 extends PureComponent {
 	}
 
 	render() {
-		const {showTitle} = this.state
-		const { toggleModal, totalUsers, stickyCfg } = this. props
+		const { showTitle } = this.state
+		const { toggleModal, totalUsers } = this.props
 		return (
 			<Fragment>
 				<Styled.Logo alt='Tân Thiên Long - http://ttlm.zing.vn' src={`${this.staticImgPath}/game_logo.png`} />
 				<Styled.FrameContent>
-					<Styled.Title className={`${showTitle ? '': 'hidden'}`} alt='Tuyệt tác kiếm hiệp Kim Dung' src={`${this.staticImgPath}/f1_title.png`} />
-					<div className='framefooter' style={{background: `url(${this._getMobileF1bg(totalUsers)}) center top`}}>
+					<Styled.Title className={`${showTitle ? '' : 'hidden'}`} alt='Tuyệt tác kiếm hiệp Kim Dung' src={`${this.staticImgPath}/f1_title.png`} />
+					<div className='framefooter' style={{ background: `url(${this._getMobileF1bg(totalUsers)}) center top` }}>
 						<div className='mobile-footer-title'>
 							<img src='/static/img/f1_2_title.png' />
 						</div>
@@ -57,10 +59,6 @@ export default class Frame1 extends PureComponent {
 						{totalUsers < 50000 && <img className='totaluser-gift' src={`${this.staticImgPath}/moc1-3.png`} />}
 						{totalUsers >= 50000 && totalUsers < 100000 && <img className='totaluser-gift' src={`${this.staticImgPath}/moc2-3.png`} />}
 						{totalUsers >= 100000 && <img className='totaluser-gift' src={`${this.staticImgPath}/moc3-3.png`} />}
-						{/* <div className='qr-scan'>
-							<img src={`${this.staticImgPath}/qrscan.png`} />
-							{stickyCfg && stickyCfg.map(stickyItem => <a key={stickyItem.id} href={stickyItem.link} className={stickyItem.type}></a>)}
-						</div> */}
 					</div>
 				</Styled.FrameContent>
 

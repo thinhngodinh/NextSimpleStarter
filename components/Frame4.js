@@ -6,6 +6,9 @@ export default class Frame4 extends PureComponent {
 		return(
 			<Fragment>
 				<div>
+					<div className='frame-title'>
+						<img src='/static/img/title_he_thong_ban_do.png' />
+					</div>
 					<a href='javascript:;' className='absolute-link lacduong'>
 						<img src={`${this.staticImagePath}/f4_lacduong.png`} className='absolute-image' />
 					</a>

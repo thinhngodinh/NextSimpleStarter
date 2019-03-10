@@ -18,11 +18,10 @@ export default class MobileHeader extends React.PureComponent {
 				return true
 			}
 		})
-		console.log(links)
 
 		return (
 			<StyledMobileHeader>
-				<img src='/static/img/mobile_header_!.png' />
+				<img src='/static/img/mobile_header.png' />
 				{links && links.map(linkItem => <a key={linkItem.id} href={linkItem.link} className={linkItem.type}></a>)}
 			</StyledMobileHeader>
 		)

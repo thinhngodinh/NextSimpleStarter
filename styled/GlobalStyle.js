@@ -1,11 +1,4 @@
-import { createGlobalStyle, keyframes } from 'styled-components'
-
-const backgroundAnimation = keyframes`
-	0%{background-position:19% 0%}
-	50%{background-position:82% 100%}
-	100%{background-position:19% 0%}
-}
-`
+import { createGlobalStyle, keyframes, css } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
 	html {
@@ -19,13 +12,14 @@ const GlobalStyle = createGlobalStyle`
 	}
   body {
 		margin: 0 auto !important;
-		max-width: 1400px;
-		background: url(/static/img/page_bg.jpg) no-repeat center top;
-		background-size: cover;
-		background-attachment: fixed;
+		${props => props.pageShadow === true ? css`max-width: 1400px;` : css`max-width: 100%;`}
+		background: url(${props => props.pageShadow === true ? '/static/img/page_bg.jpg' : '/static/img/sub_page_bg.jpg' }) no-repeat center top;
+		background-size: ${props => props.pageShadow === true ? 'cover' : '100vw'};
+		${props => props.pageShadow !== true && css`background-position: center 453px;`}
+		${props => props.pageShadow === true && css`background-attachment: fixed;`};
 	}
 	#__next {
-		box-shadow: 0px 3px 106px -28px rgba(0,0,0,1);
+		box-shadow: ${props => props.pageShadow === true ? '0px 3px 106px -28px rgba(0,0,0,1)' : 'none'};
 	}
 	.hidden {
 		display: none
@@ -57,6 +51,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 	@import "/static/libs/slick/slick.css";
 	@import "/static/libs/slick/slick-theme.css";
+	@import "/static/libs/tabs/react-tabs.css";
 `
 
 export default GlobalStyle
