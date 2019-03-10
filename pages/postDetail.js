@@ -19,7 +19,6 @@ class PostDetail extends React.PureComponent {
 		let postDetail = null
 		try {
 			postDetail = await apiService.getPostDetail(isServer, query.postTitle)
-			console.log('>>>>>>>SERVER', postDetail)
 		}
 		catch (e) {
 			console.error(e)
@@ -76,7 +75,7 @@ class PostDetail extends React.PureComponent {
 						Ngày đăng: {moment(postDetail.datePublic).fromNow()}
 					</div>
 					<div className='article-body'>
-						{renderHTML(postDetail.content)}
+						{postDetail.content && renderHTML(postDetail.content)}
 					</div>
 				</PageLayout>
 			</React.Fragment>

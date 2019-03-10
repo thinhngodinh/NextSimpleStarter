@@ -27,9 +27,11 @@ import appActions from '../actions/appActions'
 class Index extends React.Component {
 	static async getInitialProps({ store, isServer, req, pathname, query }) {
 		// dispatch action to saga for initial data
+		console.log(store.getState())
 		if(isServer) {
 			const httpService = new HttpService()
 			const apiService = new ApiService(httpService)
+
 			try {
 				const totalUsersData = await apiService.getTotalUser(isServer)
 				store.dispatch(appActions.setTotalUsers.invoke(totalUsersData.data))
@@ -37,19 +39,19 @@ class Index extends React.Component {
 				store.dispatch(appActions.setTotalUsers.invoke(0))
 			}
 
-			// try {
-			// 	const frame3Cfg = await apiService.getFrame3Config(isServer)
-			// 	store.dispatch(appActions.setFrame3Cfg.invoke(frame3Cfg))
-			// } catch (e) {
-			// 	console.error(e)
-			// }
+			try {
+				const frame3Cfg = await apiService.getFrame3Config(isServer)
+				store.dispatch(appActions.setFrame3Cfg.invoke(frame3Cfg))
+			} catch (e) {
+				console.error(e)
+			}
 
-			// try {
-			// 	const frame5Cfg = await apiService.getFrame5Config(isServer)
-			// 	store.dispatch(appActions.setFrame5Cfg.invoke(frame5Cfg))
-			// } catch (e) {
-			// 	console.error(e)
-			// }
+			try {
+				const frame5Cfg = await apiService.getFrame5Config(isServer)
+				store.dispatch(appActions.setFrame5Cfg.invoke(frame5Cfg))
+			} catch (e) {
+				console.error(e)
+			}
 
 			try {
 				const stickyCfg = await apiService.getTickyBarConfig(isServer)
