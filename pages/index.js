@@ -32,45 +32,64 @@ class Index extends React.Component {
 			const httpService = new HttpService()
 			const apiService = new ApiService(httpService)
 
-			try {
-				const totalUsersData = await apiService.getTotalUser(isServer)
-				store.dispatch(appActions.setTotalUsers.invoke(totalUsersData.data))
-			} catch (e) {
-				store.dispatch(appActions.setTotalUsers.invoke(0))
-			}
+			// try {
+			// 	const totalUsersData = await apiService.getTotalUser(isServer)
+			// 	store.dispatch(appActions.setTotalUsers.invoke(totalUsersData.data))
+			// } catch (e) {
+			// 	store.dispatch(appActions.setTotalUsers.invoke(0))
+			// }
+
+			// try {
+			// 	const frame3Cfg = await apiService.getFrame3Config(isServer)
+			// 	store.dispatch(appActions.setFrame3Cfg.invoke(frame3Cfg))
+			// } catch (e) {
+			// 	console.error(e)
+			// }
+
+			// try {
+			// 	const frame5Cfg = await apiService.getFrame5Config(isServer)
+			// 	store.dispatch(appActions.setFrame5Cfg.invoke(frame5Cfg))
+			// } catch (e) {
+			// 	console.error(e)
+			// }
+
+			// try {
+			// 	const stickyCfg = await apiService.getTickyBarConfig(isServer)
+			// 	store.dispatch(appActions.setTickyBarCfg.invoke(stickyCfg))
+			// } catch (e) {
+			// 	console.error(e)
+			// }
+
+			// try {
+			// 	const slides = await apiService.getFrame6Sliders(isServer)
+			// 	store.dispatch(appActions.setFrame6Sliders.invoke(slides))
+			// }
+			// catch (e) {
+			// 	console.error(e)
+			// }
 
 			try {
-				const frame3Cfg = await apiService.getFrame3Config(isServer)
-				store.dispatch(appActions.setFrame3Cfg.invoke(frame3Cfg))
-			} catch (e) {
-				console.error(e)
-			}
-
-			try {
-				const frame5Cfg = await apiService.getFrame5Config(isServer)
-				store.dispatch(appActions.setFrame5Cfg.invoke(frame5Cfg))
-			} catch (e) {
-				console.error(e)
-			}
-
-			try {
-				const stickyCfg = await apiService.getTickyBarConfig(isServer)
-				store.dispatch(appActions.setTickyBarCfg.invoke(stickyCfg))
-			} catch (e) {
-				console.error(e)
-			}
-
-			try {
-				const slides = await apiService.getFrame6Sliders(isServer)
-				store.dispatch(appActions.setFrame6Sliders.invoke(slides))
-			}
-			catch (e) {
-				console.error(e)
-			}
-
-			try {
-				const posts = await apiService.getPostList(isServer, {_start: 0, _limit: 6})
+				const [
+					posts,
+					totalUsersData,
+					frame3Cfg,
+					frame5Cfg,
+					stickyCfg,
+					slides
+				] = await Promise.all([
+					await apiService.getPostList(isServer, {_start: 0, _limit: 6}),
+					await apiService.getTotalUser(isServer),
+					await apiService.getFrame3Config(isServer),
+					await apiService.getFrame5Config(isServer),
+					await apiService.getTickyBarConfig(isServer),
+					await apiService.getFrame6Sliders(isServer)
+				])
 				store.dispatch(appActions.setPostList.invoke(posts))
+				store.dispatch(appActions.setTotalUsers.invoke(totalUsersData.data))
+				store.dispatch(appActions.setFrame3Cfg.invoke(frame3Cfg))
+				store.dispatch(appActions.setFrame5Cfg.invoke(frame5Cfg))
+				store.dispatch(appActions.setTickyBarCfg.invoke(stickyCfg))
+				store.dispatch(appActions.setFrame6Sliders.invoke(slides))
 			}
 			catch (e) {
 				console.log(e)

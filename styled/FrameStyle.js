@@ -42,7 +42,10 @@ export const StyledSubPageLayout = styled.div`
 			width: calc(100% - 30px) !important;
 			background: #fff;
 			min-height: auto !important;
-
+			img {
+				max-width: 95vw !important;
+				height: auto;
+			}
 			.article-title {
 				margin-top: 0 !important;
 				display: block !important;
@@ -82,6 +85,10 @@ export const StyledSubPageLayout = styled.div`
 				text-align: center;
 				color: white;
 				position: relative;
+				transition: background 0.3s;
+				&:hover {
+					background: #d82b2a;
+				}
 				&:before {
 					content: '';
 					width: 93%;

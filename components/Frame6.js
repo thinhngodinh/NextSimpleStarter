@@ -1,5 +1,5 @@
 import { PureComponent, Fragment } from 'react'
-import {Link} from '../routes'
+import { Link } from '../routes'
 import Slider from "react-slick";
 
 const slideConfig = {
@@ -25,6 +25,7 @@ export default class Frame6 extends PureComponent {
 	}
 	render() {
 		const { stickyCfg, slides } = this.props;
+		console.log(slides[0].link)
 		return (
 			<Fragment>
 				<div>
@@ -34,25 +35,33 @@ export default class Frame6 extends PureComponent {
 					<div className='news-section news-head-section'>
 						<div className='download-box'>
 							<img src='/static/img/f_news_download.png' />
-							{stickyCfg && stickyCfg.map(stickyItem => {
+							{stickyCfg && stickyCfg.map((stickyItem, index) => {
 								if (stickyItem.link.indexOf('#') === 0) return;
 								return (
 									<a
-										key={stickyItem.id}
+										key={index}
 										href={stickyItem.link}
 										target={this.renderTarget(stickyItem.type)}
 										className={stickyItem.type}></a>)
 							})}
 						</div>
 						<div className='carousel-box'>
-							<Slider {...slideConfig} >
-								{slides && slides.map((item, index) =>
+							{/* <Slider {...slideConfig} > */}
+							{slides && slides.map((item, index) => {
+								console.log(item)
+								return (
 									<div key={index} className='slide-item'>
-										<a href={item.link} target={item.isTab ? '_blank' : '_self' }>
-											<img src={`http://ttlm.zing.vn${item.image}`} />
-										</a>
-								</div>)}
-							</Slider>
+										<Link route={item.link}>
+											<a target={item.isTab ? '_blank' : '_self'}>
+												<img src={`http://ttlm.zing.vn${item.image}`} />
+											</a>
+										</Link>
+
+									</div>
+								)
+							}
+							)}
+							{/* </Slider> */}
 						</div>
 					</div>
 					<div className='news-section news-content-section'>

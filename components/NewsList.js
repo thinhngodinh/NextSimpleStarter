@@ -15,7 +15,7 @@ const NewsList = ({ postList }) => {
 				</Tab>)}
 				</TabList>
 
-				{postList && postList.map((catItem) => <TabPanel key={catItem.id} className='newstab-item'>
+				{postList && postList.map((catItem, index) => <TabPanel key={index} className='newstab-item'>
 					<NewsListCategory data={catItem} />
 				</TabPanel>
 				)}

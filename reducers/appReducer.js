@@ -35,10 +35,13 @@ const ACTION_HANDLERS = {
 		...state,
 		stickyCfg: payload.tickyCfg
 	}),
-	[appAction.setFrame6Sliders.action]: (state, payload) => ({
-		...state,
-		slides: payload.slides
-	}),
+	[appAction.setFrame6Sliders.action]: (state, payload) => {
+		console.log('#############  Server Payload', payload.slides)
+		return {
+			...state,
+			slides: payload.slides
+		}
+	},
 	[appAction.setPostList.action]: (state, payload) => ({
 		...state,
 		posts: payload.posts
