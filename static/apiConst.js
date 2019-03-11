@@ -1,6 +1,6 @@
-// const HOST = (isInternal = false) => isInternal ? 'http://ttlm.zing.vn/api' : 'http://ttlm.zing.vn/api'
+const HOST = (isInternal = false) => isInternal ? 'http://ttlm.zing.vn/api' : 'http://ttlm.zing.vn/api'
 
-const HOST = (isInternal = false) => isInternal ? 'http://api' : 'http://ttlm.zing.vn/api'
+// const HOST = (isInternal = false) => isInternal ? 'http://api' : 'http://ttlm.zing.vn/api'
 
 
 const apiConst = {
