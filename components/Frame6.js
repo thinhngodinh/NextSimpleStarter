@@ -25,7 +25,6 @@ export default class Frame6 extends PureComponent {
 	}
 	render() {
 		const { stickyCfg, slides } = this.props;
-		console.log(slides[0].link)
 		return (
 			<Fragment>
 				<div>
@@ -46,9 +45,8 @@ export default class Frame6 extends PureComponent {
 							})}
 						</div>
 						<div className='carousel-box'>
-							{/* <Slider {...slideConfig} > */}
+							<Slider {...slideConfig} >
 							{slides && slides.map((item, index) => {
-								console.log(item)
 								return (
 									<div key={index} className='slide-item'>
 										<Link route={item.link}>
@@ -61,7 +59,7 @@ export default class Frame6 extends PureComponent {
 								)
 							}
 							)}
-							{/* </Slider> */}
+							</Slider>
 						</div>
 					</div>
 					<div className='news-section news-content-section'>

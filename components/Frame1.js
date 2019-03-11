@@ -1,4 +1,6 @@
 import { PureComponent, Fragment } from 'react'
+import { Link } from '../routes'
+
 import AnimatedNumber from 'react-animated-number';
 import Styled from './Frame1Styled'
 
@@ -52,7 +54,9 @@ export default class Frame1 extends PureComponent {
 							value={totalUsers}
 							formatValue={(n) => <React.Fragment>{this.numberFormat.format(n)}<span className='label'> NGƯỜI LƯU DANH</span></React.Fragment>}
 						/>
-
+						<Link route='su-kien/su-kienluu-danh-doat-bao-huyet-chien-giang-ho'>
+							<a className='t-c-link'></a>
+						</Link>
 						<a href='javascript:;' className='btn-register' onClick={toggleModal}>
 							<img src={`${this.staticImgPath}/btn_register.png`} />
 						</a>

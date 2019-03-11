@@ -27,10 +27,11 @@ import appActions from '../actions/appActions'
 class Index extends React.Component {
 	static async getInitialProps({ store, isServer, req, pathname, query }) {
 		// dispatch action to saga for initial data
-		console.log(store.getState())
-		if(isServer) {
-			const httpService = new HttpService()
-			const apiService = new ApiService(httpService)
+		console.log('>>>>>>>>>>>>>>>>>>> IS APP INIT', store.getState().appState.isHomePageInit)
+		const httpService = new HttpService()
+		const apiService = new ApiService(httpService)
+
+		if(!store.getState().appState.isHomePageInit) {
 
 			// try {
 			// 	const totalUsersData = await apiService.getTotalUser(isServer)
@@ -90,6 +91,8 @@ class Index extends React.Component {
 				store.dispatch(appActions.setFrame5Cfg.invoke(frame5Cfg))
 				store.dispatch(appActions.setTickyBarCfg.invoke(stickyCfg))
 				store.dispatch(appActions.setFrame6Sliders.invoke(slides))
+
+				store.dispatch(appActions.setHomepageInitialed.invoke())
 			}
 			catch (e) {
 				console.log(e)

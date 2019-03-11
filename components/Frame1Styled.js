@@ -79,6 +79,14 @@ const Styled = {
 			.mobile-footer-title {
 				display: none;
 			}
+			.t-c-link {
+				display: block;
+				position: absolute;
+				width: 30px;
+				height: 88px;
+				top: 20px;
+				right: 137px;
+			}
 			.user-counter{
 				display: block;
 				position: absolute;

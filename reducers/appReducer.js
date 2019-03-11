@@ -4,6 +4,7 @@ import f3Config from '../static/frame3Config.json'
 import f5Config from '../static/frame5Config.json'
 
 const initAppState = () => ({
+	isHomePageInit: false,
 	frame3Cfg: f3Config,
 	frame5Cfg: f5Config,
 	stickyCfg: [],
@@ -36,7 +37,6 @@ const ACTION_HANDLERS = {
 		stickyCfg: payload.tickyCfg
 	}),
 	[appAction.setFrame6Sliders.action]: (state, payload) => {
-		console.log('#############  Server Payload', payload.slides)
 		return {
 			...state,
 			slides: payload.slides
@@ -45,6 +45,10 @@ const ACTION_HANDLERS = {
 	[appAction.setPostList.action]: (state, payload) => ({
 		...state,
 		posts: payload.posts
+	}),
+	[appAction.setHomepageInitialed.action]: state => ({
+		...state,
+		isHomePageInit: true
 	})
 }
 

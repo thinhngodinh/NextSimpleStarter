@@ -7,6 +7,8 @@ import HttpService from '../utils/HttpService'
 import ApiService from '../utils/ApiService'
 import renderHTML from 'react-render-html'
 
+import Router from 'next/router'
+
 
 const PageLayout = dynamic(() => import('../components/SubPageLayout'), { loading: () => <p>loading Page Layout...</p> })
 

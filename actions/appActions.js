@@ -51,6 +51,10 @@ const appActions = {
 		action: 'GET_POST_LIST',
 		invoke: posts => ({ type: appActions.setPostList.action, posts })
 	},
+	setHomepageInitialed: {
+		action: 'HOMEPAGE_HAS_DATA',
+		invoke: () => ({ type: appActions.setHomepageInitialed.action })
+	}
 }
 
 export default appActions;
