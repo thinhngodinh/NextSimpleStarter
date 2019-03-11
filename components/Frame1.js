@@ -54,7 +54,7 @@ export default class Frame1 extends PureComponent {
 							value={totalUsers}
 							formatValue={(n) => <React.Fragment>{this.numberFormat.format(n)}<span className='label'> NGƯỜI LƯU DANH</span></React.Fragment>}
 						/>
-						<Link route='su-kien/su-kienluu-danh-doat-bao-huyet-chien-giang-ho'>
+						<Link route='su-kien/su-kien-luu-danh-doat-bao-huyet-chien-giang-ho'>
 							<a className='t-c-link'></a>
 						</Link>
 						<a href='javascript:;' className='btn-register' onClick={toggleModal}>

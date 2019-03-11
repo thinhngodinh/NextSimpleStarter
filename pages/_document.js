@@ -21,9 +21,15 @@ export default class MyDocument extends Document {
 						name="viewport"
 						content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
 					/>
-					<meta name="theme-color" content="#673ab7" />
-					<link rel="manifest" href="static/manifest.json" />
-					<link rel="icon" href="static/img/favicon.ico" />
+					<meta name="theme-color" content="#b73a3a" />
+					<link rel="manifest" href="/static/manifest.json" />
+					<link rel="icon" href="/static/img/favicon.ico" />
+					<meta property="og:image" content="/static/im/mobile_subpage_header.jpg" />
+					<meta property="og:image:width" content="154" />
+					<meta property="og:image:height" content="81" />
+					<meta property="og:title" content="An awesome page" />
+					<meta property="og:description" content="Everything you need to know about the topic you are looking for" />
+					<meta property="og:url" content="http://ttl.zing.vn"></meta>
 					{this.props.styleTags}
 				</Head>
 				<body>

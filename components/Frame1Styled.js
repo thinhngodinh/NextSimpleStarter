@@ -86,6 +86,12 @@ const Styled = {
 				height: 88px;
 				top: 20px;
 				right: 137px;
+				@media(max-width: 480px) {
+					background: url(/static/img/t-c-bg.gif) no-repeat center center;
+					background-size: contain;
+					right: 90vw;
+					top: 76px;
+				}
 			}
 			.user-counter{
 				display: block;
