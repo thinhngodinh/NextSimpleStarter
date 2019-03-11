@@ -63,7 +63,6 @@ class PostDetail extends React.PureComponent {
 
 	render() {
 		const { appState, postDetail } = this.props
-		console.log(postDetail)
 		return (
 			<React.Fragment>
 				<PageLayout appState={appState}>

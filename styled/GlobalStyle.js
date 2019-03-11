@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
 		margin: 0 auto !important;
 		${props => props.pageShadow === true ? css`max-width: 1400px;` : css`max-width: 100%;`}
 		background: url(${props => props.pageShadow === true ? '/static/img/page_bg.jpg' : '/static/img/sub_page_bg.jpg' }) no-repeat center top;
-		background-size: ${props => props.pageShadow === true ? 'cover' : '100vw'};
+		background-size: ${props => props.pageShadow === true ? 'cover' : 'auto'};
 		${props => props.pageShadow !== true && css`background-position: center 453px;`}
 		${props => props.pageShadow === true && css`background-attachment: fixed;`};
 	}
