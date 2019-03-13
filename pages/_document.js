@@ -24,12 +24,10 @@ export default class MyDocument extends Document {
 					<meta name="theme-color" content="#b73a3a" />
 					<link rel="manifest" href="/static/manifest.json" />
 					<link rel="icon" href="/static/img/favicon.ico" />
-					<meta property="og:image" content="/static/im/mobile_subpage_header.jpg" />
-					<meta property="og:image:width" content="154" />
-					<meta property="og:image:height" content="81" />
-					<meta property="og:title" content="An awesome page" />
-					<meta property="og:description" content="Everything you need to know about the topic you are looking for" />
-					<meta property="og:url" content="http://ttl.zing.vn"></meta>
+					<meta property="og:image" content="http://ttlm.zing.vn/static/im/mobile_subpage_header.jpg" />
+					<meta property="og:title" content="Tân Thiên Long - VNG" />
+					<meta property="og:description" content="Tân Thiên Long - VNG" />
+					<meta property="og:url" content="http://ttlm.zing.vn"></meta>
 					{this.props.styleTags}
 				</Head>
 				<body>

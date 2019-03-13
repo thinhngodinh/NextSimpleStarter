@@ -5,7 +5,7 @@ const Footer = (props) => (
 	<StyledFooter>
 		<div>
 			<div className='logo logo-tc'>
-				<img src='/static/img/tc-logo.png' />
+				<img src='/static/img/providerLogo.jpg' />
 			</div>
 			<div className='logo logo-vng'>
 				<img src='/static/img/vng-logo.png' />
