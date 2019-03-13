@@ -1,4 +1,3 @@
-// const { createServer } = require('http')
 const path = require('path')
 const next = require('next')
 const express = require('express')
@@ -6,7 +5,7 @@ const compression = require('compression')
 const LRUCache = require('lru-cache')
 const cors = require('cors')
 const helmet = require('helmet')
-const fs = require('fs')
+// const fs = require('fs')
 
 const routes = require('./routes')
 
@@ -20,7 +19,7 @@ const app = next({ dev: isDev })
 
 const ssrCache = new LRUCache({
   max: 100,
-  maxAge: 1000 * 60 * 60 // 1hour
+  maxAge: 2 * 60 * 60 // 2 second
 });
 
 // const buildId = isProd
@@ -47,7 +46,7 @@ const renderAndCache = ( req, res, pagePath, queryParams ) => {
   app.renderToHTML(req, res, pagePath, queryParams)
     .then(html => {
       // Let's cache this page
-      if (!isDev) {
+      if (isProd) {
         console.log(`CACHE MISS: ${key}`);
         ssrCache.set(key, html);
       }
@@ -71,13 +70,13 @@ app.prepare().then(() => {
 // gzip
 	server.use(compression({ threshold: 0 }))
 // cos domain
-	// server.use(
-  //   cors({
-  //     origin:
-  //       customDomain.indexOf('http') !== -1 ? customDomain : `http://${customDomain}`,
-  //     credentials: true
-  //   })
-	// )
+	server.use(
+    cors({
+      origin:
+        customDomain.indexOf('http') !== -1 ? customDomain : `http://${customDomain}`,
+      credentials: true
+    })
+	)
 	server.use(helmet())
 
 	server.get(`/favicon.ico`, (req, res) =>
