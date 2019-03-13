@@ -7,18 +7,22 @@ import HttpService from '../utils/HttpService'
 import ApiService from '../utils/ApiService'
 import renderHTML from 'react-render-html'
 
-import Router from 'next/router'
-
-
 const PageLayout = dynamic(() => import('../components/SubPageLayout'), { loading: () => <p>loading Page Layout...</p> })
 
 import appActions from '../actions/appActions'
 
 class PostDetail extends React.PureComponent {
-	static async getInitialProps({ store, isServer, req, pathname, query }) {
+	static async getInitialProps({ store, isServer, req, pathname, asPath, query }) {
 		const httpService = new HttpService()
 		const apiService = new ApiService(httpService)
 		let postDetail = null
+		console.log('>>>>>>>>>>>>PAGE REQUEST>>>>>>>>>>>>', asPath)
+		const meta = {
+			title: '',
+			url: '',
+			desc: ''
+		}
+
 		try {
 			postDetail = await apiService.getPostDetail(isServer, query.postTitle)
 		}
@@ -67,9 +71,7 @@ class PostDetail extends React.PureComponent {
 			<React.Fragment>
 				<PageLayout appState={appState}>
 					<div className='article-title'>
-						<Link route='/'>
-							<a className='button-back'>Quay Lại</a>
-						</Link>
+						<a href='javascript:;' onClick={() => window.history.back()} className='button-back'>Quay Lại</a>
 						<h1>{postDetail.title}</h1>
 					</div>
 					<div className='article-post-date'>

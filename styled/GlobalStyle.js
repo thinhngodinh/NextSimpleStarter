@@ -49,6 +49,32 @@ const GlobalStyle = createGlobalStyle`
 	{
 		outline:0;
 	}
+	.button-back {
+		display: inline-block;
+		background: #b71e1d;
+		padding: 10px;
+		flex-basis: 100px;
+		border-radius: 50px;
+		text-align: center;
+		color: white;
+		position: relative;
+		transition: background 0.3s;
+		&:hover {
+			background: #d82b2a;
+		}
+		&:before {
+			content: '';
+			width: 93%;
+			height: 83%;
+			display: block;
+			position: absolute;
+			border: 1px solid #ffffff87;
+			border-radius: 50px;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
 	@import "/static/libs/slick/slick.css";
 	@import "/static/libs/slick/slick-theme.css";
 	@import "/static/libs/tabs/react-tabs.css";

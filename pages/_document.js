@@ -24,11 +24,15 @@ export default class MyDocument extends Document {
 					<meta name="theme-color" content="#b73a3a" />
 					<link rel="manifest" href="/static/manifest.json" />
 					<link rel="icon" href="/static/img/favicon.ico" />
-					<meta property="og:image" content="http://ttlm.zing.vn/static/im/mobile_subpage_header.jpg" />
-					<meta property="og:title" content="Tân Thiên Long - VNG" />
-					<meta property="og:description" content="Tân Thiên Long - VNG" />
-					<meta property="og:url" content="http://ttlm.zing.vn"></meta>
 					{this.props.styleTags}
+					{/* <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35957550-1"></script>
+					<script>
+						window.dataLayer = window.dataLayer || []
+						function gtag(){dataLayer.push(arguments)}
+						gtag('js', new Date())
+
+						gtag('config', 'UA-35957550-1')]
+					</script> */}
 				</Head>
 				<body>
 					<Main />

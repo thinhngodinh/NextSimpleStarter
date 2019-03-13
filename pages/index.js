@@ -25,50 +25,12 @@ const RegisterForm = dynamic(() => import('../components/RegisterForm.js'), {loa
 import appActions from '../actions/appActions'
 
 class Index extends React.Component {
-	static async getInitialProps({ store, isServer, req, pathname, query }) {
+	static async getInitialProps({ store, isServer, req, pathname, asPath, query }) {
 		// dispatch action to saga for initial data
-		console.log('>>>>>>>>>>>>>>>>>>> IS APP INIT', store.getState().appState.isHomePageInit)
 		const httpService = new HttpService()
 		const apiService = new ApiService(httpService)
-
+		console.log('>>>>>>>>>>>>PAGE REQUEST>>>>>>>>>>>>', asPath)
 		if(!store.getState().appState.isHomePageInit) {
-
-			// try {
-			// 	const totalUsersData = await apiService.getTotalUser(isServer)
-			// 	store.dispatch(appActions.setTotalUsers.invoke(totalUsersData.data))
-			// } catch (e) {
-			// 	store.dispatch(appActions.setTotalUsers.invoke(0))
-			// }
-
-			// try {
-			// 	const frame3Cfg = await apiService.getFrame3Config(isServer)
-			// 	store.dispatch(appActions.setFrame3Cfg.invoke(frame3Cfg))
-			// } catch (e) {
-			// 	console.error(e)
-			// }
-
-			// try {
-			// 	const frame5Cfg = await apiService.getFrame5Config(isServer)
-			// 	store.dispatch(appActions.setFrame5Cfg.invoke(frame5Cfg))
-			// } catch (e) {
-			// 	console.error(e)
-			// }
-
-			// try {
-			// 	const stickyCfg = await apiService.getTickyBarConfig(isServer)
-			// 	store.dispatch(appActions.setTickyBarCfg.invoke(stickyCfg))
-			// } catch (e) {
-			// 	console.error(e)
-			// }
-
-			// try {
-			// 	const slides = await apiService.getFrame6Sliders(isServer)
-			// 	store.dispatch(appActions.setFrame6Sliders.invoke(slides))
-			// }
-			// catch (e) {
-			// 	console.error(e)
-			// }
-
 			try {
 				const [
 					posts,
@@ -78,12 +40,12 @@ class Index extends React.Component {
 					stickyCfg,
 					slides
 				] = await Promise.all([
-					await apiService.getPostList(isServer, {_start: 0, _limit: 14}),
-					await apiService.getTotalUser(isServer),
-					await apiService.getFrame3Config(isServer),
-					await apiService.getFrame5Config(isServer),
-					await apiService.getTickyBarConfig(isServer),
-					await apiService.getFrame6Sliders(isServer)
+					apiService.getPostList(isServer, {_start: 0, _limit: 14}),
+					apiService.getTotalUser(isServer),
+					apiService.getFrame3Config(isServer),
+					apiService.getFrame5Config(isServer),
+					apiService.getTickyBarConfig(isServer),
+					apiService.getFrame6Sliders(isServer)
 				])
 				store.dispatch(appActions.setPostList.invoke(posts))
 				store.dispatch(appActions.setTotalUsers.invoke(totalUsersData.data))
@@ -98,7 +60,7 @@ class Index extends React.Component {
 				console.log(e)
 			}
 		}
-		return { isServer, query, pageShadow: true }
+		return { isServer, query, pageShadow: true, asPath }
 
 	}
 

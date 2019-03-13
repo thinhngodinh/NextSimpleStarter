@@ -51,15 +51,15 @@ export default class Frame5 extends PureComponent {
 								<div key={index} className='my-slide'>
 									<div className='slide-row'>
 										<a href='javascript:;' className='photo-landscape'>
-											<img src={slideItem.landscape} />
+											<img src={`http://ttlm.zing.vn${slideItem.landscape}`} />
 										</a>
 									</div>
 									<div className='slide-row'>
 										<a href='javascript:;' className='youtube-link' onClick={() => this.handlePlayVideo(slideItem.video.yid)}>
-											<img src={slideItem.video.thumbnail} />
+											<img src={`http://ttlm.zing.vn${slideItem.video.thumbnail}`} />
 										</a>
 										<a href='javascript:;' className='photo-square'>
-											<img src={slideItem.square} />
+											<img src={`http://ttlm.zing.vn${slideItem.square}`} />
 										</a>
 									</div>
 								</div>)}

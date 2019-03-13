@@ -34,6 +34,7 @@ export default class Frame6 extends PureComponent {
 					<div className='news-section news-head-section'>
 						<div className='download-box'>
 							<img src='/static/img/f_news_download.png' />
+							<a href='https://id.zing.vn/v2/register' className='download zing_id' target='_blank'></a>
 							{stickyCfg && stickyCfg.map((stickyItem, index) => {
 								if (stickyItem.link.indexOf('#') === 0) return;
 								return (

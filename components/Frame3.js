@@ -55,9 +55,9 @@ export default class Frame3 extends PureComponent {
 						<img src='/static/img/title_he_thong_ban_do.png' />
 					</div>
 					<div className='stage'>
-						<img className={`content-img ${isHide ? 'hide' : 'show'}`} src={`${activeItem.content}`} />
+						<img className={`content-img ${isHide ? 'hide' : 'show'}`} src={`http://ttlm.zing.vn${activeItem.content}`} />
 					</div>
-					<div className={`stageBackgroud ${isHide ? 'hide' : 'show'}`} style={{backgroundImage: `url(${activeItem.background})`}}>
+					<div className={`stageBackgroud ${isHide ? 'hide' : 'show'}`} style={{backgroundImage: `url(http://ttlm.zing.vn${activeItem.background})`}}>
 					</div>
 					<div className='navigation'>
 						<ul>
@@ -67,7 +67,7 @@ export default class Frame3 extends PureComponent {
 										onClick={() => this.handleChangeView(item)}
 										href='javascript:;'
 										className='btn-pager'
-										style={{backgroundImage: `url(${item.button})`}}></a>
+										style={{backgroundImage: `url(http://ttlm.zing.vn${item.button})`}}></a>
 								</li>
 							))}
 						</ul>

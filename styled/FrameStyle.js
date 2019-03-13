@@ -76,32 +76,6 @@ export const StyledSubPageLayout = styled.div`
 			display: flex;
 			margin-top: 30px;
 			align-items: flex-start;
-			.button-back {
-				display: inline-block;
-				background: #b71e1d;
-				padding: 10px;
-				flex-basis: 100px;
-				border-radius: 50px;
-				text-align: center;
-				color: white;
-				position: relative;
-				transition: background 0.3s;
-				&:hover {
-					background: #d82b2a;
-				}
-				&:before {
-					content: '';
-					width: 93%;
-					height: 83%;
-					display: block;
-					position: absolute;
-					border: 1px solid #ffffff87;
-					border-radius: 50px;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-				}
-			}
 			h1 {
 				color: #b81f1e;
 				margin: 0; padding: 0;
@@ -651,6 +625,11 @@ export const StyledFrame6 = styled(StyledFrame)`
 					&.playstore { left: 0; }
 					&.pc { left: 140px; }
 					&.apk { left: 210px; }
+					&.zing_id {
+						width: 100%;
+						top: 180px;
+						height: 83px;
+					}
 					&.topup {
 						width: 100%;
 						left: 0;

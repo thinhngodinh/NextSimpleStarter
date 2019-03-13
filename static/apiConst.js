@@ -11,6 +11,7 @@ const apiConst = {
 	FRAME_5_CFG: (isInternal) => (HOST(isInternal) + '/frame5configs'),
 	FRAME_6_SIDER: (isInternal) => (HOST(isInternal) + '/slidernews'),
 	POST_LIST: (isInternal) => (HOST(isInternal) + '/categories/homepage'),
+	POST_LIST_TOTAL: (isInternal) => (HOST(isInternal) + '/articles/count?category='),
 	POST_DETAIL: (isInternal) => (HOST(isInternal) + '/articles/url/')
 }
 
