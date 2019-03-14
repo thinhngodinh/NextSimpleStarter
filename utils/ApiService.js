@@ -84,4 +84,11 @@ export default class ApiService {
 			this._defaultRequestHeader
 		)
 	}
+
+	getTotalPostByCategory (isServer=false, categoryId) {
+		return this.httpService.get(
+			`${API_URL.POST_LIST_TOTAL(isServer)}${categoryId}`,
+			this._defaultRequestHeader
+		)
+	}
 }
