@@ -4,10 +4,21 @@ import { Provider } from 'react-redux'
 import App, { Container } from 'next/app'
 import withRedux from 'next-redux-wrapper'
 import withReduxSaga from 'next-redux-saga'
+import Router from 'next/router'
 
 import initStore from '../utils/store'
 import GlobalStyle from '../styled/GlobalStyle'
 
+function trackPageView(url) {
+  try {
+    window.gtag('config', 'UA-35957550-1', {
+      page_location: url
+    });
+  } catch (error) {
+    // silences the error in dev mode
+    // and/or if gtag fails to load
+  }
+}
 
 /* debug to log how the store is being used */
 
@@ -24,7 +35,11 @@ class MyApp extends App {
 		}
 			return { pageProps }
 	}
-
+	componentDidMount() {
+    Router.onRouteChangeComplete = url => {
+      trackPageView(url);
+    };
+  }
 	render() {
 		const { Component, pageProps, store } = this.props
 		return (

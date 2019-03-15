@@ -1,4 +1,4 @@
-import React from 'react'
+import { Fragment } from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
 
 import { ServerStyleSheet } from 'styled-components'
@@ -10,8 +10,22 @@ export default class MyDocument extends Document {
       sheet.collectStyles(<App {...props} />),
     );
     const styleTags = sheet.getStyleElement();
+		// Check if in production
+		const isProduction = process.env.NODE_ENV === 'production';
 
-    return { ...page, styleTags };
+    return { ...page, styleTags, isProduction };
+	}
+	// Function will be called below to inject
+  // script contents on to page
+  setGoogleTags() {
+    return {
+      __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-35957550-1');
+      `
+    };
   }
 	render() {
 		return (
@@ -37,6 +51,13 @@ export default class MyDocument extends Document {
 				<body>
 					<Main />
 					<NextScript />
+					{this.props.isProduction ?
+						<Fragment>
+							<script async src="https://www.googletagmanager.com/gtag/js?id=UA-35957550-1"></script>
+							{/* We call the function above to inject the contents of the script tag */}
+							<script dangerouslySetInnerHTML={this.setGoogleTags()} />
+						</Fragment>
+					: ''}
 				</body>
 			</html>
 		)
