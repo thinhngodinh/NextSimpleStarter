@@ -470,6 +470,7 @@ export const StyledFrame6 = styled(StyledFrame)`
 			display: flex;
 			.news-list {
 				max-width: 100vw;
+				position: relative;
 			}
 			.guide-box,
 			.download-box {
@@ -589,6 +590,22 @@ export const StyledFrame6 = styled(StyledFrame)`
 
 	}
 
+	.more-article {
+		display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2rem;
+    padding: 7px 15px;
+    border: 1px solid #ff00002e;
+		color: red;
+		transition: all 0.3s;
+		&:hover {
+			background: #ff0000;
+			color: white;
+		}
+	}
+
 	@media (min-width: 481px) {
 		> div {
 			width: 960px;
@@ -605,10 +622,7 @@ export const StyledFrame6 = styled(StyledFrame)`
 				background: #fdf9ed;
 				flex-grow: 2;
 				overflow: hidden;
-
-				.newstab-item {
-
-				}
+				position: relative;
 			}
 			.download-box {
 				width: 280px;

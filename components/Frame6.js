@@ -75,9 +75,7 @@ export default class Frame6 extends PureComponent {
 							<Link route='/thong-tin/cam-nang-tan-thu'>
 								<a className='guide-link cam-nang-tan-thu'></a>
 							</Link>
-							<Link route='/thong-tin/cong-dong'>
-								<a className='guide-link code-tan-thu'></a>
-							</Link>
+							<a href='https://www.facebook.com/ttlm.zing.vn/' target='_blank' className='guide-link code-tan-thu'></a>
 						</div>
 						<div className='news-list'>
 							{this.props.children}

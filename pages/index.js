@@ -40,7 +40,7 @@ class Index extends React.Component {
 					stickyCfg,
 					slides
 				] = await Promise.all([
-					apiService.getPostList(isServer, {_start: 0, _limit: 14}),
+					apiService.getPostList(isServer, {_start: 0, _limit: 6}),
 					apiService.getTotalUser(isServer),
 					apiService.getFrame3Config(isServer),
 					apiService.getFrame5Config(isServer),
