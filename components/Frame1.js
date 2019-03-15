@@ -8,14 +8,14 @@ export default class Frame1 extends PureComponent {
 	constructor(props) {
 		super(props)
 		this.numberFormat = new Intl.NumberFormat('vi-Vn')
+		this.staticImgPath = '/static/img'
+		this.state = {
+			playVid: false,
+			showTitle: false,
+			showPlayButton: false
+		}
 	}
 
-	staticImgPath = '/static/img'
-	state = {
-		playVid: false,
-		showTitle: false,
-		showPlayButton: false
-	}
 
 	componentDidMount() {
 		setTimeout(() => {

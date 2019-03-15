@@ -1,7 +1,7 @@
 import { PureComponent, Fragment } from 'react'
 
 export default class Frame3 extends PureComponent {
-	staticImagePath = '/static/img'
+	// staticImagePath = '/static/img'
 	constructor(props) {
 		super(props);
 		this.state = {

@@ -19,12 +19,12 @@ export default class YoutubePlayer extends React.PureComponent {
 		}
 		this.handleChangeVideo = this.handleChangeVideo.bind(this)
 	}
-	static defaultProps = {
-		yId: '6Dakd7EIgBE',
-		closeProp: null,
-		w: '640',
-		h: '390'
-	}
+	// static defaultProps = {
+	// 	yId: '6Dakd7EIgBE',
+	// 	closeProp: null,
+	// 	w: '640',
+	// 	h: '390'
+	// }
 
 	handleChangeVideo(newYId) {
 		this.setState({ yId: newYId })
