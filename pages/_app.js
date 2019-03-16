@@ -56,6 +56,8 @@ class MyApp extends App {
 					<title>Tân Thiên Long - VNG</title>
 					<meta name="title" content="Tân Thiên Long Mobile - VNG - Tuyệt tác kiếm hiệp Kim Dung" />
 					<meta name="Tái hiện thế giới kiếm hiệp đan xen tình duyên một cách chân thật nhất" />
+					<meta name="keywords" content="Tân Thiên Long Mobile, tân thiên long mobile, tan thien long, tan thien long mobile, ttlm, ttlm vng, tanthienlong, tan thien long mobi, tan thien long moblie, ttlm zing vn, ttlm.zing.vn, tan thien long mobile vng, tanthienlong mobile" />
+					<meta name="description" content="Tái hiện thế giới kiếm hiệp đan xen tình duyên một cách chân thật nhất" />
 					<meta property="og:image" content="http://ttlm.zing.vn/static/img/mobile_subpage_header.jpg" />
 					<meta property="og:title" content="Tân Thiên Long Mobile - VNG - Tuyệt tác kiếm hiệp Kim Dung" />
 					<meta property="og:description" content="Tái hiện thế giới kiếm hiệp đan xen tình duyên một cách chân thật nhất" />
