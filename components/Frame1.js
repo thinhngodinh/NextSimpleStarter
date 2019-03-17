@@ -1,4 +1,5 @@
 import { PureComponent, Fragment } from 'react'
+import SoundCloudPlayer from 'react-soundcloud-player'
 import { Link } from '../routes'
 
 import AnimatedNumber from 'react-animated-number';
@@ -40,6 +41,11 @@ export default class Frame1 extends PureComponent {
 		const { toggleModal, totalUsers } = this.props
 		return (
 			<Fragment>
+				{/* <SoundCloudPlayer
+					client_id="c5a171200f3a0a73a523bba14a1e0a29"
+					audio_id="591348249"
+					title="VNG-Tân Thiên Long Mobile" /> */}
+
 				<Styled.Logo alt='Tân Thiên Long - http://ttlm.zing.vn' src={`${this.staticImgPath}/game_logo.png`} />
 				<Styled.FrameContent>
 					<Styled.Title className={`${showTitle ? '' : 'hidden'}`} alt='Tuyệt tác kiếm hiệp Kim Dung' src={`${this.staticImgPath}/f1_title.png`} />

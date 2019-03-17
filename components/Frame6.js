@@ -69,9 +69,9 @@ export default class Frame6 extends PureComponent {
 							<Link route='/thong-tin/huong-dan-nap-the'>
 								<a className='guide-link huong-dan-nap-the'></a>
 							</Link>
-							<Link route='/thong-tin/code-tan-thu'>
-								<a className='guide-link code-tan-thu'></a>
-							</Link>
+
+							<a href='http://new.khuyenmai.zing.vn/ttlm/code' target='_blank' className='guide-link code-tan-thu'></a>
+
 							<Link route='/thong-tin/cam-nang-tan-thu'>
 								<a className='guide-link cam-nang-tan-thu'></a>
 							</Link>

@@ -52,7 +52,7 @@ export default class Frame3 extends PureComponent {
 			<Fragment>
 				<div>
 					<div className='frame-title'>
-						<img src='/static/img/title_he_thong_ban_do.png' />
+						<img src='/static/img/title_he_thong_nhan_vat.png' />
 					</div>
 					<div className='stage'>
 						<img className={`content-img ${isHide ? 'hide' : 'show'}`} src={`http://ttlm.zing.vn${activeItem.content}`} />
