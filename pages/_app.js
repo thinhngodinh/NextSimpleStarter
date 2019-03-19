@@ -57,7 +57,7 @@ class MyApp extends App {
 					<meta name="title" content="Tân Thiên Long Mobile - VNG - Tuyệt tác kiếm hiệp Kim Dung" />
 					<meta name="Tái hiện thế giới kiếm hiệp đan xen tình duyên một cách chân thật nhất" />
 					<meta name="keywords" content="Tân Thiên Long Mobile, tân thiên long mobile, tan thien long, tan thien long mobile, ttlm, ttlm vng, tanthienlong, tan thien long mobi, tan thien long moblie, ttlm zing vn, ttlm.zing.vn, tan thien long mobile vng, tanthienlong mobile" />
-					<meta name="description" content="Tái hiện thế giới kiếm hiệp đan xen tình duyên một cách chân thật nhất" />
+					<meta name="description" content="Game TTLM phiên bản kế thừa và phát triển những tính năng của dòng game Thiên Long Bát Bộ. Môn phái kinh điển: Cái Bang - Kiều Phong, Nga Mi Thiên Long Thiên Sơn, Tiêu Dao - Hư Trúc. Huyết Chiến Giang Hồ 2019. VNG độc quyền phát hành. Game mobile kiếm hiệp mới." />
 					<meta property="og:image" content="http://ttlm.zing.vn/static/img/mobile_subpage_header.jpg" />
 					<meta property="og:title" content="Tân Thiên Long Mobile - VNG - Tuyệt tác kiếm hiệp Kim Dung" />
 					<meta property="og:description" content="Tái hiện thế giới kiếm hiệp đan xen tình duyên một cách chân thật nhất" />
