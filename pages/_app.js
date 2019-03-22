@@ -53,7 +53,7 @@ class MyApp extends App {
 		return (
 			<Container>
 				<Head>
-					<title>Tân Thiên Long - VNG</title>
+					<title>Tân Thiên Long Mobile - VNG</title>
 					<meta name="title" content="Tân Thiên Long Mobile - VNG - Tuyệt tác kiếm hiệp Kim Dung" />
 					<meta name="Tái hiện thế giới kiếm hiệp đan xen tình duyên một cách chân thật nhất" />
 					<meta name="keywords" content="Tân Thiên Long Mobile,tân thiên long mobile,tan thien long,tan thien long mobile,ttlm,ttlm vng,tanthienlong,tan thien long mobi,tan thien long moblie,ttlm zing vn,ttlm.zing.vn,tan thien long mobile vng,tanthienlong mobile" />
