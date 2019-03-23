@@ -39,18 +39,6 @@ export default class MyDocument extends Document {
 					<link rel="manifest" href="/static/manifest.json" />
 					<link rel="icon" href="/static/img/favicon.ico" />
 					{this.props.styleTags}
-					{/* <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35957550-1"></script>
-					<script>
-						window.dataLayer = window.dataLayer || []
-						function gtag(){dataLayer.push(arguments)}
-						gtag('js', new Date())
-
-						gtag('config', 'UA-35957550-1')]
-					</script> */}
-				</Head>
-				<body>
-					<Main />
-					<NextScript />
 					{this.props.isProduction ?
 						<Fragment>
 							<script async src="https://www.googletagmanager.com/gtag/js?id=UA-35957550-1"></script>
@@ -58,6 +46,10 @@ export default class MyDocument extends Document {
 							<script dangerouslySetInnerHTML={this.setGoogleTags()} />
 						</Fragment>
 					: ''}
+				</Head>
+				<body>
+					<Main />
+					<NextScript />
 				</body>
 			</html>
 		)

@@ -5,3 +5,4 @@ static__
 *-error.log
 *lock.json
 yarn.lock
+.DS_Store
