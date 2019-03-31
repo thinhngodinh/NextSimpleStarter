@@ -133,7 +133,8 @@ class PostList extends React.PureComponent {
 								showLastButton={false}
 								length={Math.ceil(totalPost / 6)}
 								current={parseInt(page)}
-								expansion={3}
+								expansion={2}
+								showRestLabels={false}
 								onChange={ this._handleNextPage } />
 						</div>
 					</StyledPostList>
