@@ -129,6 +129,8 @@ class PostList extends React.PureComponent {
 						</div>
 						<div className='pager'>
 							<Pager
+								showFirstButton={false}
+								showLastButton={false}
 								length={Math.ceil(totalPost / 6)}
 								current={parseInt(page)}
 								expansion={3}
