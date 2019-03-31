@@ -29,7 +29,7 @@ class Index extends React.Component {
 		// dispatch action to saga for initial data
 		const httpService = new HttpService()
 		const apiService = new ApiService(httpService)
-		console.log('>>>>>>>>>>>>FE - PAGE REQUEST>>>>>>>>>>>>', asPath)
+		console.log(new Date().toISOString(), '>>>>>>>>>>>>FE - PAGE REQUEST>>>>>>>>>>>>', asPath)
 		if(!store.getState().appState.isHomePageInit) {
 			try {
 				const [
@@ -57,7 +57,7 @@ class Index extends React.Component {
 				store.dispatch(appActions.setHomepageInitialed.invoke())
 			}
 			catch (e) {
-				console.error(e)
+				console.error(new Date().toISOString(), e)
 			}
 		}
 		return { isServer, query, pageShadow: true, asPath }

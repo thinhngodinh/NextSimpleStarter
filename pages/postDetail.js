@@ -16,13 +16,13 @@ class PostDetail extends React.PureComponent {
 	static async getInitialProps({ store, isServer, req, pathname, asPath, query }) {
 		const httpService = new HttpService()
 		const apiService = new ApiService(httpService)
-		console.log('>>>>>>>>>>>>FE - PAGE REQUEST>>>>>>>>>>>>', asPath)
+		console.log(new Date().toISOString(), '>>>>>>>>>>>>FE - PAGE REQUEST>>>>>>>>>>>>', asPath)
 		let postDetail = null
 		try {
 			postDetail = await apiService.getPostDetail(isServer, query.postTitle)
 		}
 		catch (e) {
-			console.error(e)
+			console.error(new Date().toISOString(), e)
 		}
 
 		if (isServer) {
@@ -30,7 +30,7 @@ class PostDetail extends React.PureComponent {
 				const stickyCfg = await apiService.getTickyBarConfig(isServer)
 				store.dispatch(appActions.setTickyBarCfg.invoke(stickyCfg))
 			} catch (e) {
-				console.error(e)
+				console.error(new Date().toISOString(), e)
 			}
 
 			return { title: query.postTitle, category: query.category, postDetail, asPath }

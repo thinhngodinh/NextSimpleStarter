@@ -47,7 +47,7 @@ class PostList extends React.PureComponent {
 				),
 			])
 		} catch (e) {
-			console.error(e)
+			console.error(new Date().toISOString(), e)
 		}
 
 		if (postList[0] && postList[0]['id']) {
@@ -59,7 +59,7 @@ class PostList extends React.PureComponent {
 				const stickyCfg = await apiService.getTickyBarConfig(isServer)
 				store.dispatch(appActions.setTickyBarCfg.invoke(stickyCfg))
 			} catch (e) {
-				console.error(e)
+				console.error(new Date().toISOString(), e)
 			}
 		}
 		return {

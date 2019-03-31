@@ -38,7 +38,7 @@ const renderAndCache = ( req, res, pagePath, queryParams ) => {
   const key = getCacheKey(req);
 
   if (ssrCache.has(key) && !isDev) {
-    console.log(`CACHE HIT: ${key}`);
+    console.log(new Date().toISOString(), `CACHE HIT: ${key}`);
     res.send(ssrCache.get(key));
     return;
   }
@@ -47,7 +47,7 @@ const renderAndCache = ( req, res, pagePath, queryParams ) => {
     .then(html => {
       // Let's cache this page
       if (isProd) {
-        console.log(`CACHE MISS: ${key}`);
+        console.log(new Date().toISOString(), `CACHE MISS: ${key}`);
         ssrCache.set(key, html);
       }
 
@@ -120,6 +120,6 @@ app.prepare().then(() => {
       console.error(err.message)
 			throw err
     }
-		console.log(`> FE - App running on domain ${customDomain} and port ${PORT}`)
+		console.log(new Date().toISOString(), `> FE - App running on domain ${customDomain} and port ${PORT}`)
   });
 })
