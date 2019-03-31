@@ -31,7 +31,7 @@ class PostList extends React.PureComponent {
 		let queryLimit = 6
 
 		if (query.page > 1) {
-			queryStart = query.page * queryLimit - 1
+			queryStart = (query.page - 1) * queryLimit
 		}
 
 		try {
@@ -129,7 +129,7 @@ class PostList extends React.PureComponent {
 						</div>
 						<div className='pager'>
 							<Pager
-								length={Math.ceil(totalPost / 10)}
+								length={Math.ceil(totalPost / 6)}
 								current={parseInt(page)}
 								expansion={3}
 								onChange={ this._handleNextPage } />
