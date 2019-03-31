@@ -1,8 +1,8 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import { connect } from 'react-redux'
+import Head from 'next/head'
 import { Link, Router } from '../routes'
-
 import renderHTML from 'react-render-html'
 import Pager from 'react-pager-component';
 
@@ -21,7 +21,7 @@ class PostList extends React.PureComponent {
 		super(props)
 		this._handleNextPage = this._handleNextPage.bind(this)
 	}
-	static async getInitialProps({ store, isServer, req, pathname, query }) {
+	static async getInitialProps({ store, isServer, req, pathname, asPath, query }) {
 		const httpService = new HttpService()
 		const apiService = new ApiService(httpService)
 		let categories = []
@@ -63,6 +63,7 @@ class PostList extends React.PureComponent {
 			}
 		}
 		return {
+			asPath,
 			category: query.category,
 			page: query.page || '1',
 			postList: postList[0],
@@ -78,9 +79,16 @@ class PostList extends React.PureComponent {
 	}
 
 	render() {
-		const { appState, category, categories, postList, totalPost, page } = this.props
+		const { appState, category, categories, postList, totalPost, page, asPath } = this.props
 		return (
 			<React.Fragment>
+				<Head>
+					<title>Tân Thiên Long Mobile - {postList.name} - VNG</title>
+					<meta property="og:image" content="http://ttlm.zing.vn/static/img/mobile_subpage_header.jpg" />
+					<meta property="og:title" content={`Tân Thiên Long Mobile - ${postList.name} - VNG`} />
+					<meta property="og:description" content="Tái hiện thế giới kiếm hiệp đan xen tình duyên một cách chân thật nhất" />
+					<meta property="og:url" content={asPath} />
+				</Head>
 				<PageLayout appState={appState}>
 					<StyledPostList>
 						<div className='navigation'>

@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 import { connect } from 'react-redux'
 import moment from 'moment'
 import { Link } from '../routes'
+import Head from 'next/head'
 import HttpService from '../utils/HttpService'
 import ApiService from '../utils/ApiService'
 import renderHTML from 'react-render-html'
@@ -15,14 +16,8 @@ class PostDetail extends React.PureComponent {
 	static async getInitialProps({ store, isServer, req, pathname, asPath, query }) {
 		const httpService = new HttpService()
 		const apiService = new ApiService(httpService)
-		let postDetail = null
 		console.log('>>>>>>>>>>>>PAGE REQUEST>>>>>>>>>>>>', asPath)
-		const meta = {
-			title: '',
-			url: '',
-			desc: ''
-		}
-
+		let postDetail = null
 		try {
 			postDetail = await apiService.getPostDetail(isServer, query.postTitle)
 		}
@@ -38,9 +33,9 @@ class PostDetail extends React.PureComponent {
 				console.error(e)
 			}
 
-			return { title: query.postTitle, category: query.category, postDetail }
+			return { title: query.postTitle, category: query.category, postDetail, asPath }
 		}
-		return { postDetail: postDetail }
+		return { postDetail: postDetail, asPath }
 	}
 
 	constructor(props) {
@@ -66,9 +61,16 @@ class PostDetail extends React.PureComponent {
 	}
 
 	render() {
-		const { appState, postDetail } = this.props
+		const { appState, postDetail, asPath } = this.props
 		return (
 			<React.Fragment>
+				<Head>
+					<title>Tân Thiên Long Mobile - {postDetail.title} - VNG</title>
+					<meta property="og:image" content={postDetail.imgUrl || 'http://ttlm.zing.vn/static/img/mobile_subpage_header.jpg'} />
+					<meta property="og:title" content={postDetail.title} />
+					<meta property="og:description" content={postDetail.desc || 'Game TTLM phiên bản kế thừa và phát triển những tính năng của dòng game Thiên Long Bát Bộ. Môn phái kinh điển: Cái Bang - Kiều Phong, Nga Mi Thiên Long Thiên Sơn, Tiêu Dao - Hư Trúc. Huyết Chiến Giang Hồ 2019. VNG độc quyền phát hành. Game mobile kiếm hiệp mới.'} />
+					<meta property="og:url" content={asPath} />
+				</Head>
 				<PageLayout appState={appState}>
 					<div className='article-title'>
 						<a href='javascript:;' onClick={() => window.history.back()} className='button-back'>Quay Lại</a>
