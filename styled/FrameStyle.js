@@ -165,7 +165,7 @@ export const NextPageButton = styled.a`
 
 export const StyledFrame1 = styled(StyledFrame)`
 	align-items: flex-start;
-	background: url(/static/img/homeBg_hi_res_.jpg) no-repeat center top;
+	background: url(/static/img/f1_desktop_bg.jpg) no-repeat center top;
 	background-size: cover;
 	@media (max-width: 480px) {
 		background: url(/static/img/f1_mobile_bg.jpg) no-repeat center top;
@@ -454,9 +454,10 @@ export const StyledFrame5 = styled(StyledFrame)`
 `;
 
 export const StyledFrame6 = styled(StyledFrame)`
-	min-height: 726px;
+	min-height: 900px;
 	@media (max-width: 480px) {
 		order: 2;
+		min-height: 700px !important;
 		.react-tabs__tab {
 			padding: 10px 13px !important;
 		}

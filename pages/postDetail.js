@@ -2,7 +2,7 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import { connect } from 'react-redux'
 import moment from 'moment'
-import { Link } from '../routes'
+import { Link, Router } from '../routes'
 import Head from 'next/head'
 import HttpService from '../utils/HttpService'
 import ApiService from '../utils/ApiService'
@@ -40,6 +40,7 @@ class PostDetail extends React.PureComponent {
 
 	constructor(props) {
 		super(props)
+		this.handleBackAction = this.handleBackAction.bind(this)
 		moment.updateLocale('en', {
 			relativeTime: {
 				future: "trong %s",
@@ -60,6 +61,14 @@ class PostDetail extends React.PureComponent {
 		});
 	}
 
+	handleBackAction () {
+		if (window.history.length > 2) {
+			window.history.back()
+		} else {
+			Router.pushRoute('/')
+		}
+	}
+
 	render() {
 		const { appState, postDetail, asPath } = this.props
 		return (
@@ -73,7 +82,7 @@ class PostDetail extends React.PureComponent {
 				</Head>
 				<PageLayout appState={appState}>
 					<div className='article-title'>
-						<a href='javascript:;' onClick={() => window.history.back()} className='button-back'>Quay Lại</a>
+						<a href='javascript:;' onClick={this.handleBackAction} className='button-back'>Quay Lại</a>
 						<h1>{postDetail.title}</h1>
 					</div>
 					<div className='article-post-date'>

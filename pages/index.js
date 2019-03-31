@@ -6,7 +6,6 @@ import NoSSR from 'react-no-ssr'
 import HttpService from '../utils/HttpService'
 import ApiService from '../utils/ApiService'
 
-import StyleRegisterBox from '../styled/StyledModal'
 import { NextPageButton, StyledFrame1, StyledFrame3, StyledFrame4, StyledFrame5, StyledFrame6 } from '../styled/FrameStyle'
 
 import Footer from '../components/Footer'
@@ -14,13 +13,11 @@ import MobileHeader from '../components/MobileHeader'
 import FloatingDownload from '../components/FloatingDownload'
 import NewsList from '../components/NewsList'
 
-const Frame1 = dynamic(() => import('../components/Frame1'), {loading: () => <p>loading Frame 1...</p>})
-const Frame3 = dynamic(() => import('../components/Frame3'), {loading: () => <p>loading Frame 3...</p>})
-const Frame4 = dynamic(() => import('../components/Frame4'), {loading: () => <p>loading Frame 4...</p>})
-const Frame5 = dynamic(() => import('../components/Frame5'), {loading: () => <p>loading Frame 5...</p>})
-const Frame6 = dynamic(() => import('../components/Frame6'), {loading: () => <p>loading Frame 6...</p>})
-const RegisterForm = dynamic(() => import('../components/RegisterForm.js'), {loading: () => <p>loading...</p>})
-
+const Frame1 = dynamic(() => import('../components/Frame1'), {loading: () => <p>loading...</p>})
+const Frame3 = dynamic(() => import('../components/Frame3'), {loading: () => <p>loading...</p>})
+const Frame4 = dynamic(() => import('../components/Frame4'), {loading: () => <p>loading...</p>})
+const Frame5 = dynamic(() => import('../components/Frame5'), {loading: () => <p>loading...</p>})
+const Frame6 = dynamic(() => import('../components/Frame6'), {loading: () => <p>loading...</p>})
 
 import appActions from '../actions/appActions'
 
@@ -34,21 +31,18 @@ class Index extends React.Component {
 			try {
 				const [
 					posts,
-					totalUsersData,
 					frame3Cfg,
 					frame5Cfg,
 					stickyCfg,
 					slides
 				] = await Promise.all([
 					apiService.getPostList(isServer, {_start: 0, _limit: 6}),
-					apiService.getTotalUser(isServer),
 					apiService.getFrame3Config(isServer),
 					apiService.getFrame5Config(isServer),
 					apiService.getTickyBarConfig(isServer),
 					apiService.getFrame6Sliders(isServer)
 				])
 				store.dispatch(appActions.setPostList.invoke(posts))
-				store.dispatch(appActions.setTotalUsers.invoke(totalUsersData.data))
 				store.dispatch(appActions.setFrame3Cfg.invoke(frame3Cfg))
 				store.dispatch(appActions.setFrame5Cfg.invoke(frame5Cfg))
 				store.dispatch(appActions.setTickyBarCfg.invoke(stickyCfg))
@@ -89,8 +83,7 @@ class Index extends React.Component {
 	}
 
 	render() {
-		const { totalUsers, appState } = this.props
-		const { registerBox } = this.state
+		const { appState } = this.props
 		return (
 			<React.Fragment>
 				<Head>
@@ -106,12 +99,22 @@ class Index extends React.Component {
 				<FloatingDownload stickyCfg={appState.stickyCfg} />
 				<StyledFrame1>
 					{Frame1 && <Frame1
-												totalUsers={totalUsers}
 												toggleModal={this.toggleModal} />}
 					<NextPageButton href='javascript:;' onClick={this.handleNextFrame}>
 						<img src='/static/img/next_frame_button.png' />
 					</NextPageButton>
 				</StyledFrame1>
+
+				<StyledFrame6>
+					{Frame6 && <Frame6
+						slides={appState.slides}
+						stickyCfg={appState.stickyCfg}>
+						{appState.posts && <NewsList postList={appState.posts} /> }
+					</Frame6>}
+					<NextPageButton href='javascript:;' onClick={this.handleNextFrame}>
+						<img src='/static/img/next_frame_button.png' />
+					</NextPageButton>
+				</StyledFrame6>
 
 				<StyledFrame3>
 					{Frame3 && <Frame3 config={appState.frame3Cfg} />}
@@ -129,26 +132,9 @@ class Index extends React.Component {
 
 				<StyledFrame5>
 					{Frame5 && <Frame5 config={appState.frame5Cfg} />}
-					<NextPageButton href='javascript:;' onClick={this.handleNextFrame}>
-						<img src='/static/img/next_frame_button.png' />
-					</NextPageButton>
 				</StyledFrame5>
 
-				<StyledFrame6>
-					{Frame6 && <Frame6
-						slides={appState.slides}
-						stickyCfg={appState.stickyCfg}>
-						{appState.posts && <NewsList postList={appState.posts} /> }
-					</Frame6>}
-				</StyledFrame6>
-
 				<Footer />
-				{registerBox &&
-					<StyleRegisterBox>
-						<div className='backdrop'></div>
-						<RegisterForm toggleModal={this.toggleModal} />
-					</StyleRegisterBox>
-				}
 			</React.Fragment>
 		)
 	}
