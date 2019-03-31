@@ -36,7 +36,7 @@ export default class MyDocument extends Document {
 						content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
 					/>
 					<meta name="theme-color" content="#b73a3a" />
-					<link rel="manifest" href="/static/manifest.json" />
+					{/* <link rel="manifest" href="/static/manifest.json" /> */}
 					<link rel="icon" href="/static/img/favicon.ico" />
 					{this.props.styleTags}
 					{this.props.isProduction ?

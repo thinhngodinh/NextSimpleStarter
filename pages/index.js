@@ -1,4 +1,3 @@
-import 'isomorphic-fetch'
 import React from 'react'
 import dynamic from 'next/dynamic'
 import { connect } from 'react-redux'
@@ -30,7 +29,7 @@ class Index extends React.Component {
 		// dispatch action to saga for initial data
 		const httpService = new HttpService()
 		const apiService = new ApiService(httpService)
-		console.log('>>>>>>>>>>>>PAGE REQUEST>>>>>>>>>>>>', asPath)
+		console.log('>>>>>>>>>>>>FE - PAGE REQUEST>>>>>>>>>>>>', asPath)
 		if(!store.getState().appState.isHomePageInit) {
 			try {
 				const [
@@ -58,7 +57,7 @@ class Index extends React.Component {
 				store.dispatch(appActions.setHomepageInitialed.invoke())
 			}
 			catch (e) {
-				console.log(e)
+				console.error(e)
 			}
 		}
 		return { isServer, query, pageShadow: true, asPath }

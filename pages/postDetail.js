@@ -16,7 +16,7 @@ class PostDetail extends React.PureComponent {
 	static async getInitialProps({ store, isServer, req, pathname, asPath, query }) {
 		const httpService = new HttpService()
 		const apiService = new ApiService(httpService)
-		console.log('>>>>>>>>>>>>PAGE REQUEST>>>>>>>>>>>>', asPath)
+		console.log('>>>>>>>>>>>>FE - PAGE REQUEST>>>>>>>>>>>>', asPath)
 		let postDetail = null
 		try {
 			postDetail = await apiService.getPostDetail(isServer, query.postTitle)
@@ -66,7 +66,7 @@ class PostDetail extends React.PureComponent {
 			<React.Fragment>
 				<Head>
 					<title>Tân Thiên Long Mobile - {postDetail.title} - VNG</title>
-					<meta property="og:image" content={postDetail.imgUrl || 'http://ttlm.zing.vn/static/img/mobile_subpage_header.jpg'} />
+					<meta property="og:image" content={postDetail.imageMeta || 'http://ttlm.zing.vn/static/img/mobile_subpage_header.jpg'} />
 					<meta property="og:title" content={postDetail.title} />
 					<meta property="og:description" content={postDetail.desc || 'Game TTLM phiên bản kế thừa và phát triển những tính năng của dòng game Thiên Long Bát Bộ. Môn phái kinh điển: Cái Bang - Kiều Phong, Nga Mi Thiên Long Thiên Sơn, Tiêu Dao - Hư Trúc. Huyết Chiến Giang Hồ 2019. VNG độc quyền phát hành. Game mobile kiếm hiệp mới.'} />
 					<meta property="og:url" content={asPath} />

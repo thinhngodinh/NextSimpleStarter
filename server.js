@@ -120,6 +120,6 @@ app.prepare().then(() => {
       console.error(err.message)
 			throw err
     }
-		console.log(`> App running on domain ${customDomain} and port ${PORT}`)
+		console.log(`> FE - App running on domain ${customDomain} and port ${PORT}`)
   });
 })

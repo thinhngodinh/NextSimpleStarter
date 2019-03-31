@@ -35,7 +35,6 @@ export default class Frame2Event extends React.PureComponent {
 	}
 
 	handleNaviItemClick (itemIndex) {
-		console.log('dynamic load component', itemIndex)
 		if (this.state.activeIndex !== itemIndex) {
 			this.setState({
 				activeIndex: itemIndex

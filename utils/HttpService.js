@@ -31,7 +31,7 @@ export default class HttpService {
 	}
 
 	call(method, url, body, headers) {
-		console.log('HTTP', `[${method.toUpperCase()}]`, url)
+		console.log('FE - HTTP', `[${method.toUpperCase()}]`, url)
 		const fetchConfig = {
 			method: method,
 			body: JSON.stringify(body),
@@ -39,7 +39,6 @@ export default class HttpService {
 				...headers
 			}
 		}
-		console.log('fetchConfig', fetchConfig);
 		if (!body) {
 			delete fetchConfig.body;
 		}
