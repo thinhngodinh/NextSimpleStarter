@@ -9,7 +9,8 @@ const initAppState = () => ({
 	frame5Cfg: f5Config,
 	stickyCfg: [],
 	posts: [],
-	slides: []
+	slides: [],
+	guideBoxCfg: null
 });
 
 const ACTION_HANDLERS = {
@@ -49,6 +50,10 @@ const ACTION_HANDLERS = {
 	[appAction.setHomepageInitialed.action]: state => ({
 		...state,
 		isHomePageInit: true
+	}),
+	[appAction.setGuideBoxCfg.action]: (state, payload) => ({
+		...state,
+		guideBoxCfg: payload.guideBoxCfg
 	})
 }
 

@@ -12,7 +12,8 @@ const apiConst = {
 	FRAME_6_SIDER: (isInternal) => (HOST(isInternal) + '/slidernews'),
 	POST_LIST: (isInternal) => (HOST(isInternal) + '/categories/homepage'),
 	POST_LIST_TOTAL: (isInternal) => (HOST(isInternal) + '/articles/count?category='),
-	POST_DETAIL: (isInternal) => (HOST(isInternal) + '/articles/url/')
+	POST_DETAIL: (isInternal) => (HOST(isInternal) + '/articles/url/'),
+	GUIDE_BOX: (isInternal) => (HOST(isInternal) + '/guideboxconfigs')
 }
 
 export default apiConst

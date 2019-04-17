@@ -54,6 +54,10 @@ const appActions = {
 	setHomepageInitialed: {
 		action: 'HOMEPAGE_HAS_DATA',
 		invoke: () => ({ type: appActions.setHomepageInitialed.action })
+	},
+	setGuideBoxCfg: {
+		action: 'GET_GUIDE_BOX_DATA',
+		invoke: guideBoxCfg => ({ type: appActions.setGuideBoxCfg.action, guideBoxCfg })
 	}
 }
 

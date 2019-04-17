@@ -660,11 +660,6 @@ export const StyledFrame6 = styled(StyledFrame)`
 			.guide-box {
 				width: 280px;
 				position: relative;
-				> img {
-					position: absolute;
-					top: 0; left: 0;
-					z-index: -1;
-				}
 				.guide-link {
 					display: block;
 					width: 249px;

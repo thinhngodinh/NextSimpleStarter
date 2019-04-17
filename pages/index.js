@@ -34,19 +34,22 @@ class Index extends React.Component {
 					frame3Cfg,
 					frame5Cfg,
 					stickyCfg,
-					slides
+					slides,
+					guideBoxCfg
 				] = await Promise.all([
 					apiService.getPostList(isServer, {_start: 0, _limit: 6}),
 					apiService.getFrame3Config(isServer),
 					apiService.getFrame5Config(isServer),
 					apiService.getTickyBarConfig(isServer),
-					apiService.getFrame6Sliders(isServer)
+					apiService.getFrame6Sliders(isServer),
+					apiService.getGuideBox(isServer)
 				])
 				store.dispatch(appActions.setPostList.invoke(posts))
 				store.dispatch(appActions.setFrame3Cfg.invoke(frame3Cfg))
 				store.dispatch(appActions.setFrame5Cfg.invoke(frame5Cfg))
 				store.dispatch(appActions.setTickyBarCfg.invoke(stickyCfg))
 				store.dispatch(appActions.setFrame6Sliders.invoke(slides))
+				store.dispatch(appActions.setGuideBoxCfg.invoke(guideBoxCfg))
 
 				store.dispatch(appActions.setHomepageInitialed.invoke())
 			}
@@ -107,6 +110,7 @@ class Index extends React.Component {
 
 				<StyledFrame6>
 					{Frame6 && <Frame6
+						guideBoxCfg={appState.guideBoxCfg}
 						slides={appState.slides}
 						stickyCfg={appState.stickyCfg}>
 						{appState.posts && <NewsList postList={appState.posts} /> }

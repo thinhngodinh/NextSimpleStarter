@@ -91,4 +91,11 @@ export default class ApiService {
 			this._defaultRequestHeader
 		)
 	}
+
+	getGuideBox (isServer=false) {
+		return this.httpService.get(
+			`${API_URL.GUIDE_BOX(isServer)}`,
+			this._defaultRequestHeader
+		)
+	}
 }

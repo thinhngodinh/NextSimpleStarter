@@ -23,8 +23,13 @@ export default class Frame6 extends PureComponent {
 		}
 		return '_self';
 	}
+
+	renderGuideBoxLinkType(isTab) {
+		return isTab ? '_blank' : '_self';
+	}
+
 	render() {
-		const { stickyCfg, slides } = this.props;
+		const { stickyCfg, slides, guideBoxCfg } = this.props;
 		return (
 			<Fragment>
 				<div>
@@ -65,17 +70,13 @@ export default class Frame6 extends PureComponent {
 					</div>
 					<div className='news-section news-content-section'>
 						<div className='guide-box'>
-							<img src='/static/img/tintuc_highlight_post.png' />
-							<Link route='/thong-tin/huong-dan-nap-the'>
-								<a className='guide-link huong-dan-nap-the'></a>
-							</Link>
+							{guideBoxCfg.map((link, index) => (
+									<a href={link.url} target={this.renderGuideBoxLinkType(link.isTab)}>
+										<img src={`http://ttlm.zing.vn/${link.image}`} />
+									</a>
+								)
+							)}
 
-							<a href='http://new.khuyenmai.zing.vn/ttlm/code' target='_blank' className='guide-link code-tan-thu'></a>
-
-							<Link route='/thong-tin/cam-nang-tan-thu'>
-								<a className='guide-link cam-nang-tan-thu'></a>
-							</Link>
-							<a href='https://www.facebook.com/ttlm.zing.vn/' target='_blank' className='guide-link code-tan-thu'></a>
 						</div>
 						<div className='news-list'>
 							{this.props.children}
