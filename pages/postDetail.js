@@ -76,7 +76,7 @@ class PostDetail extends React.PureComponent {
 				<Head>
 					<title>Tân Thiên Long Mobile - {postDetail.title} - VNG</title>
 					<meta property="og:image" content={postDetail.imageMeta || 'http://ttlm.zing.vn/static/img/mobile_subpage_header.jpg'} />
-					<meta property="og:title" content={postDetail.title} />
+					<meta property="og:title" content={`Tân Thiên Long Mobile - VNG: ${postDetail.title}`} />
 					<meta property="og:description" content={postDetail.desc || 'Game TTLM phiên bản kế thừa và phát triển những tính năng của dòng game Thiên Long Bát Bộ. Môn phái kinh điển: Cái Bang - Kiều Phong, Nga Mi Thiên Long Thiên Sơn, Tiêu Dao - Hư Trúc. Huyết Chiến Giang Hồ 2019. VNG độc quyền phát hành. Game mobile kiếm hiệp mới.'} />
 					<meta property="og:url" content={asPath} />
 				</Head>

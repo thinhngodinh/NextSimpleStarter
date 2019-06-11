@@ -85,8 +85,8 @@ class PostList extends React.PureComponent {
 				<Head>
 					<title>Tân Thiên Long Mobile - {postList.name} - VNG</title>
 					<meta property="og:image" content="http://ttlm.zing.vn/static/img/mobile_subpage_header.jpg" />
-					<meta property="og:title" content={`Tân Thiên Long Mobile - ${postList.name} - VNG`} />
-					<meta property="og:description" content="Tái hiện thế giới kiếm hiệp đan xen tình duyên một cách chân thật nhất" />
+					<meta property="og:title" content={`Tân Thiên Long Mobile - VNG: ${postList.name}`} />
+					<meta property="og:description" content="Tân Thiên Long Mobile là Game Mobile nhập vai kiếm hiệp mang cốt truyện Thiên Long Bát Bộ với hàng loạt trận tranh bá giang hồ đầy máu lửa." />
 					<meta property="og:url" content={asPath} />
 				</Head>
 				<PageLayout appState={appState}>
