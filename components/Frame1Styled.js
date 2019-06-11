@@ -1,10 +1,5 @@
 import styled, { keyframes } from 'styled-components'
 
-import { fadeIn, pulse } from 'react-animations'
-
-const fadeInAnimation = keyframes`${fadeIn}`
-const pulseAnimation = keyframes`${pulse}`
-
 const BlurEffect = keyframes`
 	0% {
 		opacity: 0;
@@ -96,7 +91,7 @@ const Styled = {
 			outline: none;
 			position: absolute;
 			bottom: 0;
-			left: 275px;
+			left: 140px;
 		}
 		.video-playlist {
 			position: fixed;
@@ -135,11 +130,11 @@ const Styled = {
 			}
 		}
 		@media (max-width: 480px) {
-			height: 720px;
+			height: calc(100vw * 1.5);
 			.yt-single-player {
-				bottom: 90px !important;
+				bottom: 13% !important;
 				left: 50% !important;
-				transform: translate(-50%, 0) scale(0.8);
+				transform: translate(-197%, 0) scale(0.8);
 			}
 			.framefooter {
 				top: 670px !important;

@@ -23,7 +23,7 @@ export default class Frame1 extends PureComponent {
 		this.setState({activeYid: null})
 	}
 
-	handlePlayVideo (yid = 'TFESJ5yZiKc') {
+	handlePlayVideo (yid = 'gxWlqE8H3UY') {
 		this.setState({
 			h: (window.innerWidth * 0.8 * 9)/16,
 			w: window.innerWidth * 0.8,

@@ -170,6 +170,7 @@ export const StyledFrame1 = styled(StyledFrame)`
 	@media (max-width: 480px) {
 		background: url(/static/img/f1_mobile_bg.jpg) no-repeat center top;
 		order: 1;
+		background-size: cover;
   }
 `;
 

@@ -90,7 +90,7 @@ class Index extends React.Component {
 		return (
 			<React.Fragment>
 				<Head>
-					<title>Tân Thiên Long Mobile - Trang Chủ VNG</title>
+					<title>Tân Thiên Long Mobile - VNG</title>
 					<meta property="og:image" content="http://ttlm.zing.vn/static/img/mobile_subpage_header.jpg" />
 					<meta property="og:title" content="Tân Thiên Long Mobile - VNG - Tuyệt tác kiếm hiệp Kim Dung" />
 					<meta property="og:description" content="Tái hiện thế giới kiếm hiệp đan xen tình duyên một cách chân thật nhất" />
